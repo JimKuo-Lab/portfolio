@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭哲瑋 Jim Kuo — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&family=Playfair+Display:wght@700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Warm color system ── */
+      --amber:       #C2622B;
+      --amber-mid:   #D97706;
+      --amber-light: #FBBF24;
+      --amber-pale:  #FDE68A;
+      --amber-bg:    #FEF7ED;
+      --blue:        #C2622B;
+      --blue-mid:    #D97706;
+      --blue-light:  #FBBF24;
+      --blue-pale:   #FDE68A;
+      --blue-bg:     #FEF7ED;
+      --text-dark:   #1A0F0A;
+      --text-body:   #5C3D2E;
+      --text-muted:  #8B6355;
+      --text-sub:    #B08B7A;
+      --line:        #D4B99A;
+      --line-light:  #EDE0D0;
+      --serif:       'Noto Serif TC', serif;
+      --sans:        'Noto Sans TC', sans-serif;
+      --playfair:    'Playfair Display', var(--serif);
+      --display:     'Oswald', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text-dark);
+      background: #FDFAF5;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253,250,245,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line-light);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--playfair);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      color: var(--text-body);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* ── Sections & Container ── */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+    section { padding: 120px 0 100px; }
+    section:first-of-type { padding-top: 156px; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--playfair);
+      font-size: 60px;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--line-light);
+      margin: 0;
+    }
+
+    /* ── Hero (unused but kept) ── */
+    #hero {
+      background: #FFFDF9;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid var(--line-light);
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 56px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-name {
+      font-family: var(--playfair);
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+    .hero-name-en {
+      font-family: var(--playfair);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-sub);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .tag-primary {
+      background: var(--amber);
+      color: #fff;
+      border-radius: 4px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .tag-outline {
+      border: 1.5px solid var(--amber-light);
+      color: var(--amber-mid);
+      border-radius: 4px;
+      padding: 7px 18px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+    .hero-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-shrink: 0;
+      width: 260px;
+    }
+    .hero-card {
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-card.primary {
+      background: #FFFDF9;
+      border: 1.5px solid var(--amber);
+      box-shadow: 0 2px 12px rgba(194,98,43,0.12);
+    }
+    .hero-card.secondary {
+      background: #FFFDF9;
+      border: 1.5px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .hero-card-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--amber-pale);
+    }
+    .hero-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-card-title { font-size: 13px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 3px; }
+    .hero-card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Career Timeline ── */
+    #about { background: #FFFDF9; }
+    .timeline-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      margin-bottom: 6px;
+    }
+    .timeline-phase {
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .timeline-phase.active {
+      color: var(--amber);
+      font-weight: 600;
+    }
+    .timeline-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      padding-bottom: 8px;
+      border-bottom: 2px solid;
+      margin-bottom: 16px;
+    }
+    .timeline-col-title.gray { color: var(--text-sub); border-color: var(--line-light); }
+    .timeline-col-title.blue { color: var(--amber); border-color: var(--amber); }
+    .timeline-track {
+      position: relative;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 6px; right: 8px;
+      height: 1px;
+      background: var(--line-light);
+    }
+    .dot-start {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .dot-end {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 3px rgba(194,98,43,0.18);
+      margin-left: auto;
+    }
+    .career-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+    }
+    .career-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line-light);
+    }
+    .career-item:last-child { border-bottom: none; }
+    .career-thumb {
+      width: 36px; height: 36px;
+      border: 1px solid var(--line-light);
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .career-thumb.dim { filter: saturate(0.2) opacity(0.6); }
+    .career-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .career-name { font-size: 15px; color: var(--text-body); font-weight: 500; line-height: 1.3; }
+    .career-role { font-size: 13px; color: var(--text-sub); margin-top: 3px; }
+
+    /* ── KPI Strip ── */
+    .kpi-strip {
+      border-top: 2px solid var(--amber);
+      padding-top: 20px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .kpi-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+    .kpi-item + .kpi-item {
+      border-left: 1px solid var(--line-light);
+      padding-left: 48px;
+      margin-left: 48px;
+    }
+    .kpi-num {
+      font-size: 72px;
+      font-weight: 700;
+      font-family: var(--display);
+      color: var(--amber);
+      white-space: nowrap;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+    .kpi-right { display: flex; flex-direction: column; justify-content: center; gap: 3px; }
+    .kpi-label { font-size: 15px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+    .kpi-sub { font-size: 12px; color: var(--text-muted); line-height: 1.3; }
+
+    /* ── Project section header ── */
+    .project-header {
+      background: var(--amber);
+      color: #fff;
+      border-radius: 0;
+      padding: 80px 56px 64px;
+      margin: 0 -56px;
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+    .project-header-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .project-header-title {
+      font-family: var(--playfair);
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .project-header-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .project-body {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 64px 0 56px;
+    }
+
+    /* ── Insight block ── */
+    .insight {
+      border-left: 4px solid var(--amber);
+      background: var(--amber-bg);
+      padding: 16px 20px;
+      font-size: 17px;
+      color: var(--text-body);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #FFFDF9;
+      border: 1.5px solid var(--line);
+      border-radius: 4px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .card.blue {
+      border-color: var(--amber);
+      box-shadow: 0 2px 12px rgba(194,98,43,0.1);
+    }
+    .card-num { font-size: 12px; color: var(--text-sub); font-weight: 600; margin-bottom: 8px; }
+    .card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .card-title.blue { color: var(--amber); font-size: 17px; }
+    .card-body { font-size: 15px; color: var(--text-body); line-height: 1.75; }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    th, td {
+      border: 1px solid var(--line-light);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--amber-bg);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-body);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Tags ── */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      border: 1.5px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 14px;
+      color: var(--text-body);
+    }
+
+    /* ── List ── */
+    .pm-list { list-style: none; padding: 0; }
+    .pm-list li {
+      font-size: 15px;
+      line-height: 1.85;
+      padding-left: 20px;
+      position: relative;
+      color: var(--text-body);
+    }
+    .pm-list li::before { content: '—'; position: absolute; left: 0; color: var(--text-sub); }
+
+    /* ── Module badge list ── */
+    .module-list { display: flex; flex-direction: column; gap: 8px; }
+    .module-item {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 10px 16px;
+      background: var(--amber-bg);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* ── User journey strip ── */
+    .journey-strip {
+      border: 1.5px solid var(--amber-pale);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      background: #FFFDF9;
+    }
+    .journey-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .journey-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .journey-step-icon {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .journey-step-icon img { width: 40px; height: 40px; object-fit: contain; }
+    .journey-step-title { font-size: 15px; font-weight: 700; color: var(--text-dark); text-align: center; line-height: 1.3; }
+    .journey-step-sub { font-size: 13px; color: var(--text-muted); text-align: center; line-height: 1.6; }
+    .journey-arrow { color: var(--amber-light); font-size: 14px; flex-shrink: 0; padding-top: 12px; }
+
+    /* ── Flow horizontal ── */
+    .flow-h { display: flex; align-items: stretch; gap: 0; margin: 24px 0; }
+    .flow-stage {
+      flex: 1;
+      border-top: 3px solid var(--text-dark);
+      padding: 14px 12px;
+      background: var(--amber-bg);
+    }
+    .flow-stage-num { font-size: 11px; letter-spacing: 2px; color: var(--text-sub); margin-bottom: 6px; }
+    .flow-stage-title { font-size: 15px; font-weight: 700; font-family: var(--serif); margin-bottom: 10px; line-height: 1.3; }
+    .flow-stage-content { font-size: 14px; line-height: 1.8; color: var(--text-body); }
+    .flow-arrow-h { display: flex; align-items: center; padding: 0 6px; color: var(--line); font-size: 20px; flex-shrink: 0; }
+
+    /* ── Vertical flow ── */
+    .flow-v-title { font-size: 15px; font-weight: 700; font-family: var(--serif); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--text-dark); }
+    .flow-v-step { border: 1px solid var(--line-light); padding: 8px 14px; background: #FFFDF9; }
+    .flow-v-step.highlight { background: var(--amber-bg); border-color: var(--amber-pale); }
+    .flow-v-step-label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-sub); font-weight: 600; margin-bottom: 3px; }
+    .flow-v-step-content { font-size: 13px; color: var(--text-dark); line-height: 1.6; }
+    .flow-v-arrow { text-align: center; font-size: 14px; color: var(--line); padding: 2px 0; }
+
+    /* ── Feature card ── */
+    .feature-card {
+      border-left: 4px solid var(--amber);
+      padding: 14px 18px;
+      background: var(--amber-bg);
+      margin-bottom: 16px;
+      border-radius: 0 4px 4px 0;
+    }
+    .feature-card:last-child { margin-bottom: 0; }
+    .fc-title { font-size: 18px; font-weight: 700; font-family: var(--serif); margin-bottom: 8px; color: var(--text-dark); }
+    .fc-desc { font-size: 15px; color: var(--text-body); line-height: 1.75; }
+
+    /* ── Arch boxes ── */
+    .arch-cloud {
+      border: 1.5px solid #5D3010;
+      background: #5D3010;
+      color: #fff;
+      padding: 20px 24px;
+    }
+    .arch-cloud-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.3); padding: 3px 10px; display: inline-block; margin-bottom: 12px; }
+    .arch-cloud-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .arch-cloud-body { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .arch-cloud-sublabel { font-size: 11px; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .arch-cloud-text { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.85; }
+    .arch-api { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 0; }
+    .arch-api-line { flex: 1; height: 1px; background: var(--line); }
+    .arch-api-label { font-size: 13px; letter-spacing: 1px; color: var(--text-sub); }
+    .arch-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .arch-ground {
+      border: 1.5px solid var(--line);
+      padding: 16px;
+      background: var(--amber-bg);
+    }
+    .arch-ground-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 8px; }
+    .arch-ground-title { font-family: var(--serif); font-size: 16px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px solid var(--text-body); }
+    .arch-ground-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-body); margin-bottom: 7px; }
+    .arch-ground-badge { width: 20px; height: 20px; border: 1px solid var(--text-muted); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-muted); }
+    .arch-tappay { border: 1px dashed var(--line); border-radius: 4px; padding: 12px 18px; margin-bottom: 20px; font-size: 14px; color: var(--text-muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    /* ── Strategy blocks ── */
+    .strategy-grid { display: grid; grid-template-columns: 1fr 32px 1fr 32px 1fr; align-items: stretch; gap: 0; margin-bottom: 16px; }
+    .strategy-block { border: 1.5px solid var(--line); padding: 24px; }
+    .strategy-block.dark { background: #7B4A32; color: #fff; border-color: #7B4A32; }
+    .strategy-block.mid { background: var(--amber-bg); }
+    .strategy-num { font-size: 48px; font-weight: 900; font-family: serif; line-height: 1; margin-bottom: 8px; }
+    .strategy-num.dark { color: rgba(255,255,255,0.15); }
+    .strategy-num.mid { color: #D4B99A; }
+    .strategy-num.light { color: #EDE0D0; }
+    .strategy-phase { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .strategy-title { font-family: var(--serif); font-size: 19px; font-weight: 700; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1.5px solid; }
+    .strategy-title.dark { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .strategy-block.dark .strategy-phase { color: rgba(255,255,255,0.5); }
+    .strategy-title.mid { border-color: var(--text-muted); }
+    .strategy-title.light { border-bottom-color: var(--text-body); }
+    .strategy-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; margin-bottom: 8px; }
+    .strategy-icon { width: 20px; height: 20px; border: 1px solid; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-top: 2px; }
+    .strategy-arrow { display: flex; align-items: center; justify-content: center; color: var(--line); font-size: 24px; }
+    .flywheel-strip {
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .flywheel-icon { font-size: 18px; font-weight: 900; }
+    .flywheel-pill-dark { font-size: 14px; padding: 6px 16px; background: #7B4A32; border-radius: 20px; color: #fff; font-weight: 600; }
+    .flywheel-pill-light { font-size: 14px; padding: 6px 16px; background: var(--amber-bg); border-radius: 20px; color: var(--text-body); }
+    .flywheel-sep { color: var(--line-light); font-size: 15px; }
+    .strategy-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--line-light);
+      padding-top: 16px;
+      gap: 0;
+    }
+    .strategy-footer-col {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .strategy-footer-col + .strategy-footer-col {
+      border-left: 1px solid var(--line-light);
+    }
+    .strategy-footer-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 6px; }
+    .strategy-footer-val { font-size: 14px; color: var(--text-body); line-height: 1.75; }
+
+    /* ── AI dev flow ── */
+    .s9-flow {
+      display: grid;
+      grid-template-columns: 1fr 60px 1.4fr 60px 2fr;
+      grid-template-rows: 1fr auto;
+      align-items: stretch;
+      gap: 0;
+      margin: 24px 0;
+    }
+    .s9-col1 { grid-column: 1; grid-row: 1; }
+    .s9-arr-mid { grid-column: 2; grid-row: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+    .s9-col2 { grid-column: 3; grid-row: 1; }
+    .s9-arr-right { grid-column: 4; grid-row: 1; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--line); }
+    .s9-col3 { grid-column: 5; grid-row: 1; }
+    .s9-scrum { grid-column: 3 / 6; grid-row: 2; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px dashed var(--line); padding: 8px 0; }
+    .s9-phase { border: 1.5px solid var(--line); display: flex; flex-direction: column; height: 100%; }
+    .s9-phase-hd { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-body); background: var(--amber-bg); padding: 10px 14px; text-align: center; }
+    .s9-phase-bd { padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; align-items: stretch; flex: 1; justify-content: center; }
+    .s9-black { background: #5C3D2E; color: #fff; font-size: 15px; font-weight: 700; padding: 14px; text-align: center; }
+    .s9-box { border: 1.5px solid var(--line); font-size: 14px; padding: 12px; text-align: center; color: var(--text-body); line-height: 1.55; }
+    .s9-box-sub { font-size: 12px; color: var(--text-sub); font-weight: 400; display: block; margin-top: 4px; }
+    .s9-dn-arr { font-size: 22px; color: var(--line); text-align: center; line-height: 1; }
+    .s9-tracks { display: flex; flex-direction: column; gap: 0; flex: 1; justify-content: center; }
+    .s9-track { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
+    .s9-track + .s9-track { border-top: 1px dashed var(--line-light); padding-top: 12px; margin-top: 12px; }
+    .s9-badge { font-size: 12px; font-weight: 700; color: #fff; padding: 5px 10px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; min-width: 38px; text-align: center; }
+    .s9-step { border: 1.5px solid var(--line); font-size: 13px; padding: 7px 12px; color: var(--text-body); white-space: nowrap; flex-shrink: 0; }
+    .s9-step-end { border-color: var(--text-body); }
+    .s9-mini-arr { font-size: 16px; color: var(--line); flex-shrink: 0; }
+    .s9-big-arr { font-size: 26px; color: var(--line); line-height: 1; }
+    .s9-arr-lbl { font-size: 12px; color: var(--text-sub); white-space: nowrap; letter-spacing: 0.5px; line-height: 1.3; }
+    .s9-result {
+      border-top: 2px solid var(--amber);
+      padding-top: 20px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .s9-result-num { font-size: 26px; font-weight: 900; font-family: serif; white-space: nowrap; line-height: 1; color: var(--text-dark); }
+    .s9-result-div { width: 1px; height: 36px; background: var(--line); flex-shrink: 0; }
+    .s9-result-txt { font-size: 15px; color: var(--text-body); line-height: 1.75; }
+
+    /* ── Closing ── */
+    #contact {
+      background: #2D1208;
+      color: #fff;
+      padding: 100px 0;
+    }
+    .closing-label { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-sub); margin-bottom: 20px; }
+    .closing-intro { font-size: 28px; font-weight: 700; font-family: var(--serif); color: var(--text-sub); margin-bottom: 40px; line-height: 1.5; }
+    .closing-item { margin-bottom: 28px; }
+    .closing-item-title { font-size: 24px; font-weight: 700; font-family: var(--serif); color: #fff; line-height: 1.3; }
+    .closing-item-desc { font-size: 16px; color: var(--text-sub); margin-top: 6px; }
+    .closing-cta {
+      font-size: 48px;
+      font-weight: 900;
+      font-family: var(--playfair);
+      color: #fff;
+      text-align: center;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid #4A2010;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .closing-contact {
+      text-align: center;
+      margin-top: 16px;
+    }
+    .closing-name { font-size: 18px; font-weight: 600; font-family: var(--serif); color: #fff; margin-bottom: 6px; }
+    .closing-email { font-size: 14px; color: var(--text-sub); }
+    .closing-email a { color: var(--amber-light); text-decoration: none; }
+    .closing-email a:hover { text-decoration: underline; }
+
+    /* ── Grid helpers ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+    /* ── Section background alternation ── */
+    .bg-white { background: #FFFDF9; }
+    .bg-pale { background: #F8F1E8; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .container { padding: 0 32px; }
+      .nav-inner { padding: 0 32px; }
+      .hero-inner { padding: 0 32px; }
+      .section-title { font-size: 44px; }
+      .kpi-num { font-size: 52px; }
+      .project-header { padding: 60px 32px 48px; margin: 0 -32px; }
+      .project-header-title { font-size: 38px; }
+      .hero-name { font-size: 52px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; padding: 0 20px; }
+      .hero-cards { width: 100%; }
+      .career-grid { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .strategy-grid { grid-template-columns: 1fr; }
+      .arch-bottom { grid-template-columns: 1fr; }
+      .s9-flow { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .section-title { font-size: 32px; }
+      .kpi-num { font-size: 40px; }
+      .project-header { padding: 48px 20px 36px; margin: 0 -20px; }
+      .project-header-title { font-size: 28px; }
+      .project-header-sub { font-size: 15px; }
+      .section-sub { font-size: 15px; }
+      .hero-name { font-size: 40px; }
+      section { padding: 80px 0 64px; }
+      section:first-of-type { padding-top: 100px; }
+      /* About: stack photo+timeline on mobile */
+      #about .container > div[style*="grid-template-columns: 5fr 7fr"] {
+        display: block !important;
+      }
+      #about .container > div[style*="grid-template-columns: 5fr 7fr"] > div:first-child {
+        margin-bottom: 40px;
+      }
+      /* Image wall: fewer columns on mobile */
+      div[style*="columns: 5"] { columns: 2 !important; }
+      /* STP: stack on mobile */
+      div[style*="grid-template-columns: 1fr 1fr 1fr"][style*="border: 1.5px"] { display: block !important; }
+      div[style*="grid-template-columns: 1fr 1fr 1fr"][style*="border: 1.5px"] > div { border-right: none !important; border-bottom: 1.5px solid var(--line); }
+    }
+
+  /* ══ iRent Redesign ══ */
+  #irent .ir-body {
+    background: rgba(255, 252, 247, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(123, 74, 50, 0.15);
+    box-shadow: 0 4px 24px rgba(123,74,50,0.06), inset 0 1px 0 rgba(255,255,255,0.7);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  #irent .ir-phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #8B5A3A 0%, #B07850 100%);
+    color: #F5C98A;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    padding: 4px 14px 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  #irent .ir-phase-pill::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #F5C98A;
+    flex-shrink: 0;
+  }
+  #irent .ir-phase-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1C1008;
+    display: inline;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  #irent .ir-flow-arrow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 6px 0 6px 2px;
+    height: 20px;
+  }
+  #irent .ir-flow-arrow::before {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(180deg, #C4824A 0%, #E8B87A 100%);
+    border-radius: 1px;
+    margin-left: 10px;
+  }
+  #irent .ir-flow-arrow::after {
+    content: '▾';
+    font-size: 12px;
+    color: #C4824A;
+    margin-left: -7px;
+    margin-top: 12px;
+  }
+  #irent .ir-block {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(123,74,50,0.12);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+  }
+  #irent .ir-block-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8B5A3A;
+    margin-bottom: 6px;
+  }
+  #irent .ir-block-content {
+    font-size: 13px;
+    color: #1a1008;
+    line-height: 1.65;
+  }
+  #irent .ir-tag {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(245,201,138,0.35) 0%, rgba(240,185,100,0.2) 100%);
+    border: 1px solid rgba(196,130,74,0.3);
+    color: #3D1E08;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  #irent .ir-tag-muted {
+    background: rgba(240,240,238,0.7);
+    border-color: rgba(180,170,160,0.3);
+    color: #6B5B4E;
+  }
+  #irent .ir-sub-card {
+    background: rgba(255,253,249,0.8);
+    border: 1px solid rgba(123,74,50,0.1);
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+  #irent .ir-sub-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #7B4A32;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  #irent .ir-sub-title::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 11px;
+    background: #C4824A;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  #irent .ir-bullet-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #2A1A0E;
+    line-height: 1.8;
+  }
+  #irent .ir-bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  #irent .ir-bullet-list li::before {
+    content: '›';
+    color: #C4824A;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  #irent .ir-kpi-card {
+    background: linear-gradient(145deg, #5C3318 0%, #7B4A32 100%);
+    box-shadow: 0 6px 24px rgba(92,51,24,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 20px 24px;
+    text-align: center;
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #irent .ir-kpi-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: #F5C98A;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  #irent .ir-kpi-label {
+    font-size: 11px;
+    color: rgba(245,201,138,0.7);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+  #irent .ir-kpi-divider {
+    border: none;
+    border-top: 1px solid rgba(245,201,138,0.2);
+    margin: 12px 0;
+  }
+  #irent .ir-benefit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(123,74,50,0.1);
+    border-radius: 4px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  }
+  #irent .ir-benefit-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C4824A, #E8B87A);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  #irent .ir-benefit-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8B5A3A;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+  #irent .ir-benefit-desc {
+    font-size: 12.5px;
+    color: #1a1008;
+    line-height: 1.6;
+  }
+  @keyframes ir-count-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  #irent .ir-kpi-num {
+    animation: ir-count-up 0.6s ease both;
+  }
+  #irent .ir-kpi-card:nth-child(2) .ir-kpi-num { animation-delay: 0.15s; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══ Nav ══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#about" class="nav-logo">郭哲瑋 Jim Kuo</a>
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#smart-parking">智慧停車解決方案</a></li>
+        <li><a href="#lemon">車車大檸檬</a></li>
+        <li><a href="#irent">IRENT</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══ About ══ -->
+  <section id="about" class="bg-white">
+    <div class="container">
+
+      <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: stretch;">
+
+        <!-- 左：個人照片 -->
+        <div style="height: 100%; overflow: hidden;">
+          <img src="assets/images/own.jpg" alt="郭哲瑋 Jim Kuo" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;">
+        </div>
+
+        <!-- 右：垂直時間線 (上=近 / 下=遠) -->
+        <div>
+
+          <!-- 核心實戰 block with skill tags -->
+          <div style="border: 1.5px solid var(--amber); padding: 28px 28px 24px; margin-bottom: 32px; background: #FFFDF9;">
+
+            <!-- Header row: label + tags -->
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;">
+              <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); font-weight: 700; white-space: nowrap;">核心實戰</div>
+              <div style="flex: 1; height: 1px; background: var(--amber); opacity: 0.3;"></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tag-primary" style="font-size: 12px; padding: 5px 14px;">B2B 產品開發</span>
+                <span class="tag-outline" style="font-size: 12px; padding: 4px 12px;">敏捷開發</span>
+                <span class="tag-outline" style="font-size: 12px; padding: 4px 12px;">數據分析</span>
+              </div>
+            </div>
+
+            <!-- 智慧停車 -->
+            <div style="display: flex; align-items: flex-start; margin-bottom: 0;">
+              <!-- dot column -->
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 13px; height: 13px; border-radius: 50%; background: var(--amber); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(194,98,43,0.2); margin-top: 19px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 24px; background: rgba(194,98,43,0.3); margin-top: 4px;"></div>
+              </div>
+              <!-- content -->
+              <div style="flex: 1; padding-bottom: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 52px; height: 52px; border: 1px solid var(--line-light); border-radius: 4px; overflow: hidden; flex-shrink: 0;">
+                  <img src="assets/images/smart-parking.jpg" alt="智慧停車" style="width:100%; height:100%; object-fit:cover; transform:scale(1.5);" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 18px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 4px;">智慧停車解決方案</div>
+                  <div style="font-size: 14px; color: var(--amber); font-weight: 600;">產品管理師</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- iRent -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 13px; height: 13px; border-radius: 50%; background: var(--amber); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(194,98,43,0.2); margin-top: 19px;"></div>
+              </div>
+              <div style="flex: 1; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 52px; height: 52px; border: 1px solid var(--line-light); border-radius: 4px; overflow: hidden; flex-shrink: 0;">
+                  <img src="assets/images/irent.jpg" alt="iRent" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 18px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 4px;">共享車平台</div>
+                  <div style="font-size: 14px; color: var(--amber); font-weight: 600;">產品企劃</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 早期探索 -->
+          <div style="padding: 0 4px;">
+            <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-sub); font-weight: 700; margin-bottom: 24px;">早期探索</div>
+
+            <!-- beanfun! -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 20px; background: var(--line-light); margin-top: 4px;"></div>
+              </div>
+              <div style="flex: 1; padding-bottom: 20px; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/beanfun.jpg" alt="beanfun!" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">beanfun! App - 社群網路</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">產品規劃實習生</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 傷口敷料 -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 20px; background: var(--line-light); margin-top: 4px;"></div>
+              </div>
+              <div style="flex: 1; padding-bottom: 20px; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/wound-dressing.jpg" alt="傷口敷料" style="transform:scale(1.3);" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">傷口敷料</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">科技部創業計畫</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meloop -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+              </div>
+              <div style="flex: 1; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/meloop.jpg" alt="Meloop" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">Meloop App - 線上約會</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">行銷專案管理實習生</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin: 0;">
+
+  <!-- ══ Project 1: 智慧停車 ══ -->
+  <section id="smart-parking" class="bg-pale">
+    <div class="container">
+
+      <!-- Project header -->
+      <div class="project-header">
+        <div class="project-header-label">Project 01 · 智慧停車解決方案</div>
+        <div class="project-header-title">把空地變成數位營運的空間</div>
+      </div>
+      <div class="project-body">
+
+        <!-- User Journey -->
+        <div class="section-label" style="margin-bottom: 8px;">用戶旅程</div>
+        <div class="journey-strip">
+          <div class="journey-steps">
+            <div class="journey-step">
+              <div class="journey-step-icon">
+                <img src="assets/nano%20banana/journey-1-entry.png" onerror="this.style.display='none';">
+              </div>
+              <div class="journey-step-title">開車入場</div>
+              <div class="journey-step-sub">車牌辨識<br>自動開門</div>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step">
+              <div class="journey-step-icon">
+                <img src="assets/nano%20banana/journey-2-park.png" onerror="this.style.display='none';">
+              </div>
+              <div class="journey-step-title">停車・逛街</div>
+              <div class="journey-step-sub">POS 店家折扣<br>線上折抵車牌</div>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step">
+              <div class="journey-step-icon">
+                <img src="assets/nano%20banana/journey-3-return.png" onerror="this.style.display='none';">
+              </div>
+              <div class="journey-step-title">返回停車場</div>
+              <div class="journey-step-sub">準備繳費<br>前往開車</div>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step">
+              <div class="journey-step-icon">
+                <img src="assets/nano%20banana/journey-4-pay.png" onerror="this.style.display='none';">
+              </div>
+              <div class="journey-step-title">繳費・開發票</div>
+              <div class="journey-step-sub">優惠券折抵<br>多元金流</div>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-step">
+              <div class="journey-step-icon">
+                <img src="assets/nano%20banana/journey-5-exit.png" onerror="this.style.display='none';">
+              </div>
+              <div class="journey-step-title">開車出場</div>
+              <div class="journey-step-sub">車牌辨識<br>自動開門</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup + Modules -->
+        <div class="grid-2" style="align-items: start; margin-bottom: 24px;">
+          <div>
+            <div class="section-label" style="margin-bottom: 8px;">後台系統截圖</div>
+            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+              <div style="flex:1; overflow: hidden;">
+                <img src="assets/images/parking-backend-gen4-front.png" alt="四代繳費機後台" style="width:100%; height:auto; display:block;">
+              </div>
+              <div style="flex:1; overflow: hidden;">
+                <img src="assets/images/parking-backend-central-front.png" alt="中央管理系統" style="width:100%; height:auto; display:block;">
+              </div>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <div style="flex:1; height:100px; border:1px solid var(--line-light); border-radius:3px; overflow:hidden; opacity:0.8;">
+                <img src="assets/images/parking-gen4.jpg" alt="四代繳費機" style="width:100%; height:100%; object-fit:cover; object-position:center 40%;">
+              </div>
+              <div style="flex:1; height:100px; border:1px solid var(--line-light); border-radius:3px; overflow:hidden; opacity:0.8;">
+                <img src="assets/images/parking-gen3plus.jpg" alt="車道控制讀卡機" style="width:100%; height:100%; object-fit:cover; object-position:center 35%;">
+              </div>
+              <div style="flex:1; height:100px; border:1px solid var(--line-light); border-radius:3px; overflow:hidden; opacity:0.8;">
+                <img src="assets/images/parking-exit.png" alt="停車場出口" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-label" style="margin-bottom: 8px;">系統模組</div>
+            <div class="module-list">
+              <div class="module-item">進出場管理</div>
+              <div class="module-item">計費 / 優惠</div>
+              <div class="module-item">金流</div>
+              <div class="module-item">發票</div>
+              <div class="module-item">報表</div>
+              <div class="module-item">設備管理</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI -->
+        <div class="kpi-strip">
+          <div class="kpi-item">
+            <div class="kpi-num">1,000+</div>
+            <div class="kpi-right">
+              <div class="kpi-label">實體場域系統</div>
+              <div class="kpi-sub">穩定管理全台</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section: 客製化整合 -->
+      <div style="margin-top: 32px;">
+        <div class="project-header" style="background: #7B4A32;">
+          <div class="project-header-label">01 · 客製化整合</div>
+          <div class="project-header-title">介入特殊場域的營運管理</div>
+        </div>
+        <div class="project-body" style="border-color: #7B4A32;">
+          <div class="grid-2" style="align-items: start;">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                <span class="tag-primary">設備系統提供商</span>
+                <span class="tag-outline">機械停車技術方</span>
+              </div>
+              <div class="section-label" style="margin-bottom: 8px;">整合挑戰</div>
+              <div class="card blue" style="margin-bottom: 10px;">
+                <div class="card-title blue">01 — 封閉機械系統</div>
+                <div class="card-body">停車塔為封閉機械系統，並非從空地開始架設系統設備</div>
+              </div>
+              <div class="card blue" style="margin-bottom: 10px;">
+                <div class="card-title blue">02 — 差異化進出場邏輯</div>
+                <div class="card-body">進出場邏輯與平面停車場差異大，既有流程需重新設計</div>
+              </div>
+              <div class="card blue">
+                <div class="card-title blue">03 — 現有停車塔硬體不換</div>
+                <div class="card-body">需分析解決方案採用的硬體如何配合軟體調整完成整合</div>
+              </div>
+              <div class="kpi-strip" style="margin-top: 20px;">
+                <div class="kpi-item">
+                  <div class="kpi-num">首座</div>
+                  <div class="kpi-right">
+                    <div class="kpi-label">停車塔整合</div>
+                    <div class="kpi-sub">成功案例</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="border: 1.5px solid var(--blue-pale); border-radius: 4px; overflow: hidden;">
+                <img src="assets/images/towel%201.png" alt="停車塔案例一" style="width:100%; display:block;">
+              </div>
+              <div style="border: 1.5px solid var(--blue-pale); border-radius: 4px; overflow: hidden;">
+                <img src="assets/images/towel%202.png" alt="停車塔案例二" style="width:100%; display:block;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section: Kanban -->
+      <div style="margin-top: 32px;">
+        <div class="project-header" style="background: #3D2010;">
+          <div class="project-header-label">02 · 維運挑戰</div>
+          <div class="project-header-title">Kanban 管理多產品線穩定交付</div>
+        </div>
+        <div class="project-body" style="border-color: #3D2010;">
+          <div class="grid-3" style="margin-bottom: 24px;">
+            <div class="card">
+              <div class="card-num">問題 01</div>
+              <div class="card-title">系統廣度與規模大</div>
+              <div class="card-body">高規、低規繳費機與周邊硬體串接整合，多元後台與用戶介面的複雜模組交互影響</div>
+            </div>
+            <div class="card">
+              <div class="card-num">問題 02</div>
+              <div class="card-title">人力資源受限</div>
+              <div class="card-body">RD 以 4 / 2 / 2 的人數跨後端、嵌入式與前端協作開發，且 QA 跨事業共用，資源調動幅度有限</div>
+            </div>
+            <div class="card">
+              <div class="card-num">問題 03</div>
+              <div class="card-title">持續性交付壓力</div>
+              <div class="card-body">業務客製需求 / 客服維運工單 / 標案需求同時湧入</div>
+            </div>
+          </div>
+          <div style="background: var(--blue-pale); border-radius: 4px; padding: 20px 24px;">
+            <div style="font-size: 12px; color: var(--blue); font-weight: 700; margin-bottom: 16px; letter-spacing: 0.05em;">解決方案</div>
+            <div style="display: grid; grid-template-columns: 1fr 32px 1fr 32px 1fr; align-items: center; gap: 0;">
+              <div class="card blue">
+                <div class="card-title blue">需求透明化</div>
+                <div class="card-body" style="font-size: 12px;">Kanban 透明化需求與排序，所有狀態全員可見</div>
+              </div>
+              <div style="text-align: center; color: var(--blue-mid); font-size: 18px;">→</div>
+              <div class="card blue">
+                <div class="card-title blue">RD 持續接單</div>
+                <div class="card-body" style="font-size: 12px;">平衡長短期目標的穩定開發，PM 可彈性安排測試工程</div>
+              </div>
+              <div style="text-align: center; color: var(--blue-mid); font-size: 18px;">→</div>
+              <div class="card blue">
+                <div class="card-title blue">PM 整合更版需求</div>
+                <div class="card-body" style="font-size: 12px;">整合 RD 開發量能與 QA 期程，每版精準放入需求</div>
+              </div>
+            </div>
+          </div>
+          <!-- 成績 -->
+          <div class="kpi-strip" style="margin-top: 24px;">
+            <div class="kpi-item">
+              <div class="kpi-num">50+</div>
+              <div class="kpi-right">
+                <div class="kpi-label">需求 / 月</div>
+                <div class="kpi-sub">穩定交付</div>
+              </div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">30%</div>
+              <div class="kpi-right">
+                <div class="kpi-label">年度工單處理量上升</div>
+                <div class="kpi-sub">2024 → 2025 系統持續擴張</div>
+              </div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num" style="color: #3D7A5A;">↓5%</div>
+              <div class="kpi-right">
+                <div class="kpi-label">Bug 占比逆勢下降</div>
+                <div class="kpi-sub">規模擴張同期，品質提升</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" style="margin: 0;">
+
+  <!-- ══ Project 2: 車車大檸檬 ══ -->
+  <section id="lemon" class="bg-white">
+    <div class="container">
+      <div class="project-header">
+        <div class="project-header-label">Project 02 · 車車大檸檬</div>
+        <div class="project-header-title">打造 B2B2C 支付平台串聯中小業者</div>
+      </div>
+      <!-- 產品運作模式流程圖 -->
+      <div style="margin-top: 48px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-sub); font-weight: 700; margin-bottom: 16px;">產品運作模式</div>
+
+        <!-- 角色圖例 -->
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 6px; padding: 5px 12px; background: #E6F2EE; border-radius: 20px;">
+            <div style="width: 7px; height: 7px; border-radius: 50%; background: #2A7A5A;"></div>
+            <span style="font-size: 12px; font-weight: 700; color: #1F6045; letter-spacing: 0.02em;">用戶</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; padding: 5px 12px; background: #FFF3E0; border-radius: 20px;">
+            <div style="width: 7px; height: 7px; border-radius: 50%; background: #C8810A;"></div>
+            <span style="font-size: 12px; font-weight: 700; color: #C8810A; letter-spacing: 0.02em;">平台</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; padding: 5px 12px; background: #EEEAE4; border-radius: 20px;">
+            <div style="width: 7px; height: 7px; border-radius: 50%; background: #5A4A3A;"></div>
+            <span style="font-size: 12px; font-weight: 700; color: #5A4A3A; letter-spacing: 0.02em;">業者</span>
+          </div>
+        </div>
+
+        <!-- 流程列表 -->
+        <div style="border: 1.5px solid var(--line-light); border-radius: 4px; overflow: hidden;">
+
+          <!-- Flow 01 -->
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #FFFDF9; border-bottom: 1px solid var(--line-light);">
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 220px;">
+              <span style="font-size: 11px; font-weight: 700; color: #1F6045; padding: 3px 9px; background: #E6F2EE; border-radius: 10px;">用戶</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">→</span>
+              <span style="font-size: 11px; font-weight: 700; color: #C8810A; padding: 3px 9px; background: #FFF3E0; border-radius: 10px;">平台</span>
+            </div>
+            <div style="width: 1px; height: 36px; background: var(--line-light); flex-shrink: 0;"></div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px;">線上繳費跳轉 · 掃碼加入車車大檸檬會員</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">用戶透過既有線上繳費流程跳轉 Line Login，掃碼即完成會員建立，無額外推廣成本</div>
+            </div>
+          </div>
+
+          <!-- Flow 02 -->
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line-light);">
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 220px;">
+              <span style="font-size: 11px; font-weight: 700; color: #1F6045; padding: 3px 9px; background: #E6F2EE; border-radius: 10px;">用戶</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">→</span>
+              <span style="font-size: 11px; font-weight: 700; color: #C8810A; padding: 3px 9px; background: #FFF3E0; border-radius: 10px;">平台</span>
+            </div>
+            <div style="width: 1px; height: 36px; background: var(--line-light); flex-shrink: 0;"></div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px;">綁定車牌與支付 · 啟用出場自動扣款</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">帳號綁定手機、車牌與支付方式後，出場時系統自動扣款，省去人工繳費</div>
+            </div>
+          </div>
+
+          <!-- Flow 03 -->
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #FFFDF9; border-bottom: 1px solid var(--line-light);">
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 220px;">
+              <span style="font-size: 11px; font-weight: 700; color: #1F6045; padding: 3px 9px; background: #E6F2EE; border-radius: 10px;">用戶</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">↔</span>
+              <span style="font-size: 11px; font-weight: 700; color: #C8810A; padding: 3px 9px; background: #FFF3E0; border-radius: 10px;">平台</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">↔</span>
+              <span style="font-size: 11px; font-weight: 700; color: #5A4A3A; padding: 3px 9px; background: #EEEAE4; border-radius: 10px;">業者</span>
+            </div>
+            <div style="width: 1px; height: 36px; background: var(--line-light); flex-shrink: 0;"></div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px;">消費 · 累積點數與優惠券</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">於指定場域停車、洗車、充電，依業者行銷活動獲取點數或優惠券等數位資產</div>
+            </div>
+          </div>
+
+          <!-- Flow 04 -->
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line-light);">
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 220px;">
+              <span style="font-size: 11px; font-weight: 700; color: #5A4A3A; padding: 3px 9px; background: #EEEAE4; border-radius: 10px;">業者</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">↔</span>
+              <span style="font-size: 11px; font-weight: 700; color: #C8810A; padding: 3px 9px; background: #FFF3E0; border-radius: 10px;">平台</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">↔</span>
+              <span style="font-size: 11px; font-weight: 700; color: #5A4A3A; padding: 3px 9px; background: #EEEAE4; border-radius: 10px;">業者</span>
+            </div>
+            <div style="width: 1px; height: 36px; background: var(--line-light); flex-shrink: 0;"></div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px;">跨場域聯盟 · 互相發放點數與優惠券</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">業者可於合作業者場域互相發放點數（全平台通用）或優惠券（可指定適用場域）</div>
+            </div>
+          </div>
+
+          <!-- Flow 05 -->
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #FFFDF9;">
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 220px;">
+              <span style="font-size: 11px; font-weight: 700; color: #5A4A3A; padding: 3px 9px; background: #EEEAE4; border-radius: 10px;">業者</span>
+              <span style="color: #C8810A; font-size: 15px; font-weight: 700;">→</span>
+              <span style="font-size: 11px; font-weight: 700; color: #1F6045; padding: 3px 9px; background: #E6F2EE; border-radius: 10px;">用戶</span>
+            </div>
+            <div style="width: 1px; height: 36px; background: var(--line-light); flex-shrink: 0;"></div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px;">場域曝光 · 引入平台流量</div>
+              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">業者可於平台產品內主動曝光場域，吸引平台用戶前往消費</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 三張產品截圖 + 模組說明 -->
+      <div style="margin-top: 48px; margin-bottom: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start;">
+
+          <!-- 線上繳費系統 -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="height: 120px; margin-bottom: 16px;">
+              <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 10px;">線上繳費系統</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">無成本拉新機制</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">整合會員功能</span>
+              </div>
+            </div>
+            <div style="height: 260px; overflow: hidden; display: flex; align-items: center; justify-content: flex-start;">
+              <img src="assets/images/lemon onlinepay.png" alt="線上繳費系統" style="height: 100%; width: auto; display: block; box-shadow: 0 8px 28px rgba(0,0,0,0.14);">
+            </div>
+          </div>
+
+          <!-- 前台 LINE MINI APP & OA -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="height: 120px; margin-bottom: 16px;">
+              <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 10px;">前台 · LINE MINI APP & OA</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">場站查詢</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">訂單管理</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">數位資產管理</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">個人資料綁定</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">進出場 / 繳費推播</span>
+              </div>
+            </div>
+            <div style="height: 260px; overflow: hidden; display: flex; align-items: center; justify-content: flex-start;">
+              <img src="assets/images/lemon login.png" alt="前台 LINE MINI APP" style="height: 100%; width: auto; display: block; box-shadow: 0 8px 28px rgba(0,0,0,0.14);">
+            </div>
+          </div>
+
+          <!-- 後台 -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="height: 120px; margin-bottom: 16px;">
+              <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 10px;">後台管理</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">平台場站管理</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">行銷廣告</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">會員管理 / 分群</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">跨業者 / 場站點數規則</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">補貼與補償結算報表</span>
+                <span style="font-size: 11px; padding: 4px 10px; background: var(--amber-bg); color: var(--text-body); border: 1px solid var(--amber-pale);">金流參數管理</span>
+              </div>
+            </div>
+            <div style="height: 260px; overflow: hidden; display: flex; align-items: center; justify-content: flex-start;">
+              <img src="assets/images/lemon BK.png" alt="後台管理" style="height: 100%; width: auto; display: block; box-shadow: 0 8px 28px rgba(0,0,0,0.14);">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 01 · 市場觀察 + STP -->
+      <div style="margin-top: 64px;">
+        <div class="project-header" style="background: #7B4A32;">
+          <div class="project-header-label">01 · 市場觀察</div>
+          <div class="project-header-title">連接設備與通路成為平台</div>
+        </div>
+        <div class="project-body">
+
+          <!-- STP + 競品分析 (合併) -->
+          <div style="border: 1.5px solid var(--line); margin-bottom: 40px;">
+
+            <!-- S: 市場區隔 -->
+            <div style="padding: 28px; border-bottom: 1.5px solid var(--line);">
+              <div style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 8px;">Segmentation · 市場區隔</div>
+              <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: stretch; margin-top: 20px;">
+
+                <!-- 大型業者 -->
+                <div style="display: flex; flex-direction: column;">
+                  <div style="font-size: 11px; font-weight: 700; color: var(--text-sub); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px;">大型業者</div>
+                  <div style="display: flex; gap: 12px; margin-bottom: 14px; flex: 1;">
+                    <div style="flex: 1; border: 1.5px dashed var(--line); padding: 8px 8px 6px; background: #F5F2EE; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: #F5F2EE; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-cityparking.png.jpg" alt="城市車旅" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; line-height: 1;">城市車旅</span>
+                    </div>
+                    <div style="flex: 1; border: 1.5px dashed var(--line); padding: 8px 8px 6px; background: #F5F2EE; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: #F5F2EE; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-toturoom.png.png" alt="嘟嘟房" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; line-height: 1;">嘟嘟房</span>
+                    </div>
+                  </div>
+                  <div style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">資本額高、鎖定大型與商業場域居多，與我們目標客群區隔</div>
+                </div>
+
+                <!-- VS -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 36px;">
+                  <div style="width: 1px; height: 32px; background: var(--line-light);"></div>
+                  <span style="font-size: 10px; color: var(--text-sub); font-weight: 700; letter-spacing: 0.1em;">VS</span>
+                  <div style="width: 1px; height: 32px; background: var(--line-light);"></div>
+                </div>
+
+                <!-- 中小型業者 -->
+                <div style="display: flex; flex-direction: column;">
+                  <div style="font-size: 11px; font-weight: 700; color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px;">中小型業者</div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 14px; flex: 1;">
+                    <div style="flex: 1; border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-asus.png.png" alt="ASUS" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">ASUS</span>
+                    </div>
+                    <div style="flex: 1; border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-acer.png.png" alt="ACER" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">ACER</span>
+                    </div>
+                    <div style="flex: 1; border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-uspace.png.png" alt="uspace" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">uspace</span>
+                    </div>
+                    <div style="flex: 1; border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-utaggo.png.jpg" alt="utaggo" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">utaggo</span>
+                    </div>
+                    <div style="flex: 1; border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-autopass.png.png" alt="autopass" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">autopass</span>
+                    </div>
+                  </div>
+                  <div style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">大廠成為設備商、三足鼎立的平台商掌握流量，但對於江湖道地的中小業者市場掌握度低</div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- T: 目標客群 + 競品分析 -->
+            <div style="padding: 28px; border-bottom: 1.5px solid var(--line);">
+              <div style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 8px;">Targeting · 目標市場 · 競爭者分析</div>
+              <div style="font-size: 16px; color: var(--text-dark); margin-bottom: 20px; line-height: 1.3;">我方對中小業者市場掌握度高，持續擴張並針對競爭者劣勢進攻、學習其優點，可維持競爭力</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div style="border: 1.5px solid var(--line); padding: 20px;">
+                  <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-sub); font-weight: 700; margin-bottom: 14px;">設備銷售商</div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                    <div style="border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 64px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-asus.png.png" alt="ASUS" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">ASUS</span>
+                    </div>
+                    <div style="border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 64px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-acer.png.png" alt="ACER" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">ACER</span>
+                    </div>
+                  </div>
+                  <div style="font-size: 14px; color: var(--text-body); line-height: 1.75;">重金打造高規格設備，但通路從零建立、中小業者分散，短期難以規模化覆蓋</div>
+                </div>
+                <div style="border: 1.5px solid var(--line); padding: 20px;">
+                  <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-sub); font-weight: 700; margin-bottom: 14px;">平台商</div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                    <div style="border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 64px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-uspace.png.png" alt="uspace" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">uspace</span>
+                    </div>
+                    <div style="border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 64px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-utaggo.png.jpg" alt="utaggo" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">utaggo</span>
+                    </div>
+                    <div style="border: 1.5px dashed var(--amber-pale); padding: 8px 8px 6px; background: var(--amber-bg); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 64px;">
+                      <div style="width: 100%; height: 40px; background: var(--amber-bg); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="assets/images/logo-autopass.png.png" alt="autopass" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                      </div>
+                      <span style="font-size: 11px; color: var(--text-sub); font-weight: 600; line-height: 1;">autopass</span>
+                    </div>
+                  </div>
+                  <div style="font-size: 14px; color: var(--text-body); line-height: 1.75;">平台流量與技術兼具，但無自研設備、功能受限，商業模式也讓業者有割肉感</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- P: 市場定位 -->
+            <div style="padding: 28px; background: #3D2010;">
+              <div style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 6px;">Positioning · 市場定位</div>
+              <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 14px; letter-spacing: 0.05em;">貫徹微程式多元支付的公司策略</div>
+              <div style="font-size: 16px; color: rgba(255,255,255,0.9); line-height: 1.8;">
+                用支付平台串聯既有中小業者通路，成為生態系的主導者、活化設備銷售，攜手推進智慧城市版圖
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 設備銷售的天花板 & 突破性商業模式 -->
+          <div class="section-label" style="margin-bottom: 16px;">問題與解法配適 補充</div>
+          <div class="grid-2" style="align-items: start;">
+            <div style="border: 1.5px solid var(--line); padding: 28px; background: var(--amber-bg);">
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--text-sub); margin-bottom: 20px;">設備銷售的天花板</div>
+              <ul style="list-style: none; padding: 0;">
+                <li style="border-bottom: 1px solid var(--line-light); padding-bottom: 16px; margin-bottom: 16px;">
+                  <div style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">獲利單一化</div>
+                  <div style="font-size: 15px; color: var(--text-body); line-height: 1.7;">陷於價格戰，硬體利潤空間持續壓縮</div>
+                </li>
+                <li style="border-bottom: 1px solid var(--line-light); padding-bottom: 16px; margin-bottom: 16px;">
+                  <div style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">產品同質化</div>
+                  <div style="font-size: 15px; color: var(--text-body); line-height: 1.7;">競爭對手眾多，功能難以建立差異化壁壘</div>
+                </li>
+                <li>
+                  <div style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">資訊斷裂化</div>
+                  <div style="font-size: 15px; color: var(--text-body); line-height: 1.7;">缺乏行為數據，無法掌握設備外的終端用戶行為</div>
+                </li>
+              </ul>
+            </div>
+            <div style="border: 1.5px solid #3D2010; padding: 28px; background: #3D2010; color: #fff;">
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-bottom: 20px;">突破性商業模式</div>
+              <ul style="list-style: none; padding: 0;">
+                <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; margin-bottom: 16px;">
+                  <div style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px;">價值模式轉型</div>
+                  <div style="font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.7;">從「單次買斷」轉向「共享服務」，確保長期收益</div>
+                </li>
+                <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; margin-bottom: 16px;">
+                  <div style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px;">競爭堡壘轉型</div>
+                  <div style="font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.7;">從「功能競爭」轉向「平台生態」，利用數位資產創造黏性</div>
+                </li>
+                <li>
+                  <div style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px;">市場視野轉型</div>
+                  <div style="font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.7;">從「B2B 設備供貨」轉向「B2B2C 平台規劃」，擴大商業版圖</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 平台策略・飛輪模型 -->
+      <div style="margin-top: 32px;">
+        <div class="project-header" style="background: #3D2010;">
+          <div class="project-header-label">02 · 平台策略</div>
+          <div class="project-header-title">透過高黏著生態系解決設備銷售瓶頸</div>
+        </div>
+        <div class="project-body" style="border-color: #3D2010;">
+          <div class="strategy-grid">
+            <div class="strategy-block dark">
+              <div class="strategy-num dark">01</div>
+              <div class="strategy-phase">初期</div>
+              <div class="strategy-title dark">流量啟動</div>
+              <div class="strategy-item" style="color: rgba(255,255,255,0.78);">
+                <div class="strategy-icon" style="border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.6);">補</div>
+                <span>洗車業者共同投入補貼，會員行銷零負擔</span>
+              </div>
+              <div class="strategy-item" style="color: rgba(255,255,255,0.78);">
+                <div class="strategy-icon" style="border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.6);">點</div>
+                <span>點數全平台通用，折抵停車費</span>
+              </div>
+              <div class="strategy-item" style="color: rgba(255,255,255,0.78);">
+                <div class="strategy-icon" style="border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.6);">回</div>
+                <span>月底現金補回停車業者 → 不虧損</span>
+              </div>
+            </div>
+            <div class="strategy-arrow">→</div>
+            <div class="strategy-block">
+              <div class="strategy-num light">02</div>
+              <div class="strategy-phase">中後期</div>
+              <div class="strategy-title light">飛輪自轉</div>
+              <div class="strategy-item" style="color: #444;">
+                <div class="strategy-icon" style="border-color: #888; color: #888;">↔</div>
+                <span>停車 ↔ 洗車流量雙向回流</span>
+              </div>
+              <div class="strategy-item" style="color: #444;">
+                <div class="strategy-icon" style="border-color: #888; color: #888;">販</div>
+                <span>販賣機等周邊營收持續上升</span>
+              </div>
+              <div class="strategy-item" style="color: #444;">
+                <div class="strategy-icon" style="border-color: #888; color: #888;">異</div>
+                <span>業者自發補貼 → 零售、保修異業加入</span>
+              </div>
+            </div>
+            <div class="strategy-arrow">→</div>
+            <div class="strategy-block">
+              <div class="strategy-num light">03</div>
+              <div class="strategy-phase">護城河</div>
+              <div class="strategy-title light">設備即入場券</div>
+              <div style="font-size: 13px; color: #444; line-height: 1.7; margin-bottom: 10px;">唯有採購微程式設備<br>才能開通平台服務</div>
+              <div style="font-size: 13px; font-weight: 400; color: #222; border-top: 1px solid #eee; padding-top: 10px;">
+                <div>硬體不再競價</div>
+                <div style="margin-top: 8px;">→ 成為生態圈
+                  <span style="border: 1px solid #999; padding: 2px 8px; margin-left: 6px; border-radius: 2px; font-size: 11px; font-weight: 400;">排他入場券</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flywheel-strip">
+            <span class="flywheel-icon">↻</span>
+            <span style="font-size: 12px; color: var(--text-sub); letter-spacing: 0.5px;">飛輪循環</span>
+            <span style="width: 1px; height: 16px; background: var(--line); margin: 0 4px;"></span>
+            <span class="flywheel-pill-dark">業者補貼</span>
+            <span class="flywheel-sep">›</span>
+            <span class="flywheel-pill-dark">用戶導流</span>
+            <span class="flywheel-sep">›</span>
+            <span class="flywheel-pill-light">周邊營收</span>
+            <span class="flywheel-sep">›</span>
+            <span class="flywheel-pill-light">更多補貼投入</span>
+            <span class="flywheel-sep">›</span>
+            <span class="flywheel-pill-light">設備銷售起飛</span>
+          </div>
+          <div class="strategy-footer">
+            <div class="strategy-footer-col">
+              <div class="strategy-footer-label">收入來源</div>
+              <div class="strategy-footer-val"><strong>設備銷售 · 系統服務費 · 金流手續費抽成</strong> · 導客費</div>
+            </div>
+            <div class="strategy-footer-col">
+              <div class="strategy-footer-label">飛輪節點</div>
+              <div class="strategy-footer-val">停車場 · 洗車 / 充電站 · 販賣機</div>
+            </div>
+            <div class="strategy-footer-col">
+              <div class="strategy-footer-label">競爭壁壘</div>
+              <div class="strategy-footer-val">點數黏著 · 設備綁定 · 數據累積</div>
+            </div>
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi-item">
+              <div class="kpi-num">1,800+ 萬</div>
+              <div class="kpi-right">
+                <div class="kpi-label">預期市場規模 / 年</div>
+                <div class="kpi-sub">已透過預售拿下關鍵客戶</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 系統整合架構 -->
+      <!-- AI 與敏捷開發模式 -->
+      <div style="margin-top: 32px;">
+        <div class="project-header" style="background: #3D2010;">
+          <div class="project-header-label">03 · AI 與敏捷開發模式</div>
+          <div class="project-header-title">導入 AI 與 Scrum 解決規格差異與品質問題</div>
+        </div>
+        <div class="project-body" style="border-color: #3D2010;">
+          <div class="s9-flow">
+            <div class="s9-col1">
+              <div class="s9-phase">
+                <div class="s9-phase-hd">需求定義</div>
+                <div class="s9-phase-bd">
+                  <div class="s9-black">Magic Pattern</div>
+                  <div class="s9-dn-arr">↓</div>
+                  <div class="s9-box">Prototype<span class="s9-box-sub">對焦需求</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="s9-arr-mid">
+              <span class="s9-arr-lbl" style="position: absolute; top: calc(50% - 32px); text-align: center;">同時匯出</span>
+              <span class="s9-big-arr">→</span>
+            </div>
+            <div class="s9-col2">
+              <div class="s9-phase">
+                <div class="s9-phase-hd">平行準備</div>
+                <div class="s9-phase-bd">
+                  <div class="s9-tracks">
+                    <div class="s9-track">
+                      <div class="s9-badge" style="background:#3D2010;">PM</div>
+                      <div class="s9-step">Spec</div>
+                      <div class="s9-mini-arr">→</div>
+                      <div class="s9-step s9-step-end" style="white-space: normal; line-height: 1.4;">人工修正<br>資料邏輯</div>
+                    </div>
+                    <div class="s9-track">
+                      <div class="s9-badge" style="background:#7B4A32;">RD</div>
+                      <div class="s9-step">TypeScript</div>
+                      <div class="s9-mini-arr">→</div>
+                      <div class="s9-step s9-step-end" style="white-space: normal; line-height: 1.4;">套用 Laravel<br>框架</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="s9-arr-right">→</div>
+            <div class="s9-col3">
+              <div class="s9-phase">
+                <div class="s9-phase-hd">Scrum 開發 · Sprint 回顧進行測試</div>
+                <div class="s9-phase-bd">
+                  <div class="s9-tracks">
+                    <div class="s9-track">
+                      <div class="s9-badge" style="background:#3D2010; width:48px;">迭代</div>
+                      <div class="s9-step" style="white-space: normal; line-height: 1.4;">討論用戶情境<br>與技術解法</div>
+                      <div class="s9-mini-arr">→</div>
+                      <div class="s9-step s9-step-end" style="white-space: normal; line-height: 1.4;">PM 迭代 Spec ↔ RD Cursor 比對規格差異<span style="display:block; font-size:11px; color:var(--text-sub); margin-top:4px;">SDD 開發邏輯</span></div>
+                    </div>
+                    <div class="s9-track">
+                      <div class="s9-badge" style="background:#3D2010; width:48px;">PM</div>
+                      <div class="s9-step" style="white-space: normal; line-height: 1.4;">ChatGPT + NotebookLM<br>產出測試案例</div>
+                      <div class="s9-mini-arr">→</div>
+                      <div class="s9-step s9-step-end" style="white-space: normal; line-height: 1.4;">RD 跑 Behavior<br>回顧當天手動驗證</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="s9-scrum">
+              <span style="font-size: 14px; color: var(--text-sub);">↻</span>
+              <span style="font-size: 12px; letter-spacing: 1.5px; color: var(--text-sub);">SCRUM 迭代 SPEC 與溝通合作模式</span>
+            </div>
+          </div>
+          <div class="kpi-strip" style="margin-top: 20px;">
+            <div class="kpi-item">
+              <div class="kpi-num">4–5月 → 1月</div>
+              <div class="kpi-right">
+                <div class="kpi-label">開發時程</div>
+                <div class="kpi-sub">縮短為 1 個月推出最小可行產品</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <hr class="divider" style="margin: 0;">
+
+  <!-- ══ Project 3: iRent ══ -->
+  <section id="irent" class="bg-pale">
+    <div class="container">
+      <div class="project-header">
+        <div class="project-header-label">Project 03 · iRent 共享汽車</div>
+        <div class="project-header-title">利用數據標註及報表讓營運管理系統化</div>
+      </div>
+
+      <!-- 違規行為標註系統 -->
+      <div style="margin-top: 12px;">
+        <div class="ir-body">
+
+          <!-- ── PHASE 01 ── -->
+          <div>
+            <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">研究 · 定義規格</span></div>
+
+            <!-- 數據來源標籤雲 -->
+            <div class="ir-block">
+              <div class="ir-block-label">數據來源與判斷標準</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px;">
+                <span class="ir-tag">車輛回傳（定位 · 速度）</span>
+                <span class="ir-tag">停車場回傳</span>
+                <span class="ir-tag">歷史訂單</span>
+                <span class="ir-tag ir-tag-muted">政府速限規範</span>
+                <span class="ir-tag ir-tag-muted">停車場還車規範</span>
+              </div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
+
+            <!-- 協作分析 -->
+            <div class="ir-block">
+              <div class="ir-block-label">與數據工程師協作分析</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">超速</div>
+                  <ul class="ir-bullet-list">
+                    <li>比對路段速限</li>
+                    <li>PR 區間分布圖（超出 10 / 20 / 30… km/h）</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">怠速</div>
+                  <ul class="ir-bullet-list">
+                    <li>平均怠速時長分布</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">違規還車</div>
+                  <ul class="ir-bullet-list">
+                    <li>地區分布</li>
+                    <li>違規人數比例</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
+
+            <div class="ir-block" style="margin-bottom: 28px;">
+              <div class="ir-block-label">輸出</div>
+              <div class="ir-block-content">統計研究報告 → 確認標註規則與產品規格</div>
+            </div>
+          </div>
+
+          <!-- ── PHASE 02 ── -->
+          <div>
+            <div class="ir-phase-pill">PHASE 02<span class="ir-phase-title">系統開發 · 自動標註</span></div>
+
+            <div class="ir-block">
+              <div class="ir-block-label">自動標註引擎</div>
+              <div class="ir-block-content">每筆訂單即時比對規則，違規訂單自動標記並寫入後台報表</div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
+
+            <div class="ir-block" style="margin-bottom: 28px;">
+              <div class="ir-block-label">報表詳情</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">違規還車</div>
+                  <ul class="ir-bullet-list">
+                    <li>停車場剩餘名額</li>
+                    <li>是否超額（第幾台）</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">超速</div>
+                  <ul class="ir-bullet-list">
+                    <li>路段速限</li>
+                    <li>實際超速幅度</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">怠速</div>
+                  <ul class="ir-bullet-list">
+                    <li>怠速時長紀錄</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── PHASE 03 ── -->
+          <div>
+            <div class="ir-phase-pill">PHASE 03<span class="ir-phase-title">效益</span></div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: stretch;">
+              <!-- KPI 卡 -->
+              <div class="ir-kpi-card">
+                <div class="ir-kpi-num">10 萬+</div>
+                <div class="ir-kpi-label">月訂單量</div>
+                <hr class="ir-kpi-divider">
+                <div class="ir-kpi-num">~ 2,000</div>
+                <div class="ir-kpi-label">張罰單 / 月</div>
+              </div>
+              <!-- 效益列表 -->
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="ir-benefit-row">
+                  <div class="ir-benefit-icon">🔄</div>
+                  <div>
+                    <div class="ir-benefit-label">取代人工</div>
+                    <div class="ir-benefit-desc">調度員人工巡查發現違規還車 → 系統自動標註</div>
+                  </div>
+                </div>
+                <div class="ir-benefit-row">
+                  <div class="ir-benefit-icon">📋</div>
+                  <div>
+                    <div class="ir-benefit-label">取代人工</div>
+                    <div class="ir-benefit-desc">等收到罰單才人工聯繫監理站、轉嫁給用戶 → 針對訂單標註提前宣導</div>
+                  </div>
+                </div>
+                <div class="ir-benefit-row">
+                  <div class="ir-benefit-icon">🚗</div>
+                  <div>
+                    <div class="ir-benefit-label">延長車輛使用壽命</div>
+                    <div class="ir-benefit-desc">減少超速行為，降低車輛損耗</div>
+                  </div>
+                </div>
+                <div class="ir-benefit-row">
+                  <div class="ir-benefit-icon">📈</div>
+                  <div>
+                    <div class="ir-benefit-label">最大化車輛訂單量</div>
+                    <div class="ir-benefit-desc">減少怠速行為，提升車輛租賃率</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ Contact ══ -->
+  <section id="contact">
+    <div class="container">
+      <div class="closing-label">Contact</div>
+      <div class="closing-intro">如果你們需要</div>
+      <div class="closing-item">
+        <div class="closing-item-title">大型企業系統規劃與開發管理</div>
+        <div class="closing-item-desc">從需求收斂、系統設計到跨團隊落地執行</div>
+      </div>
+      <div class="closing-item">
+        <div class="closing-item-title">工作流優化與數位化</div>
+        <div class="closing-item-desc">找出人工瓶頸，設計系統化解決方案</div>
+      </div>
+      <div class="closing-item">
+        <div class="closing-item-title">多元情境與組織規模的團隊協作領導</div>
+        <div class="closing-item-desc">新創到企業，跨職能協調與推進</div>
+      </div>
+      <div class="closing-cta">讓我們聊聊如何一起面對挑戰</div>
+      <div class="closing-contact">
+        <div class="closing-name">郭哲瑋 Jim Kuo</div>
+        <div class="closing-email">
+          <a href="mailto:e991009@gmail.com">e991009@gmail.com</a>
+          　+886 983-822-051
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const savedY = sessionStorage.getItem('scrollY');
+    if (savedY) window.scrollTo(0, parseInt(savedY, 10));
+    window.addEventListener('scroll', () => {
+      sessionStorage.setItem('scrollY', window.scrollY);
+    }, { passive: true });
+  </script>
+</body>
+</html>
