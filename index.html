@@ -773,15 +773,27 @@
       section::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
 
       /* === Container: 維持桌面最小寬度 === */
-      .container { min-width: 1050px; padding: 0 32px; }
+      .container { min-width: 1200px; padding: 0 32px; }
 
       /* === Lemon 三欄截圖 header: 防止 overflow 溢出相鄰欄 === */
       #lemon div[style*="height: 120px"][style*="margin-bottom: 16px"] {
         overflow: hidden;
       }
 
-      /* === Project header: 移除負 margin 避免被 overflow 裁切 === */
-      .project-header { margin: 0 !important; }
+      /* === Project header: 移除負 margin + 固定在左側不隨內容右滑 === */
+      .project-header {
+        margin: 0 !important;
+        position: sticky;
+        left: 0;
+        z-index: 5;
+      }
+
+      /* === STP / Targeting: grid 子項目允許縮小，防止撐破欄位 === */
+      #lemon div[style*="grid-template-columns: 1fr auto 1fr"] > div,
+      #lemon div[style*="grid-template-columns: 1fr 1fr"] > div {
+        min-width: 0;
+        overflow: hidden;
+      }
     }
 
   /* ══ iRent Redesign ══ */
