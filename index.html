@@ -773,7 +773,12 @@
       section::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
 
       /* === Container: 維持桌面最小寬度 === */
-      .container { min-width: 900px; padding: 0 32px; }
+      .container { min-width: 1050px; padding: 0 32px; }
+
+      /* === Lemon 三欄截圖 header: 防止 overflow 溢出相鄰欄 === */
+      #lemon div[style*="height: 120px"][style*="margin-bottom: 16px"] {
+        overflow: hidden;
+      }
 
       /* === Project header: 移除負 margin 避免被 overflow 裁切 === */
       .project-header { margin: 0 !important; }
