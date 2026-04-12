@@ -732,9 +732,19 @@
         flex-direction: column !important;
         gap: 0 !important;
       }
+      #about .container > div[style*="grid-template-columns: 5fr 7fr"] > div {
+        width: 100% !important;
+      }
       #about .container > div[style*="grid-template-columns: 5fr 7fr"] > div:first-child {
-        height: 260px !important;
-        margin-bottom: 32px;
+        height: 300px !important;
+        margin-bottom: 28px;
+        overflow: hidden !important;
+      }
+      #about .container > div[style*="grid-template-columns: 5fr 7fr"] > div:first-child img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: top center !important;
       }
 
       /* === Journey steps: horizontal scroll === */
@@ -780,6 +790,15 @@
       .strategy-footer { flex-direction: column !important; gap: 16px !important; }
       .strategy-footer-col { border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--line-light); padding-top: 12px; }
       .strategy-footer-col:first-child { border-top: none; padding-top: 0; }
+
+      /* === About 核心實戰 block === */
+      #about div[style*="border: 1.5px solid var(--amber)"] {
+        padding: 16px !important;
+      }
+      #about div[style*="border: 1.5px solid var(--amber)"] > div:first-child {
+        gap: 8px !important;
+        margin-bottom: 16px !important;
+      }
 
       /* === iRent section === */
       #irent .ir-body { padding: 20px 16px; }
