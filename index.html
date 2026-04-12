@@ -814,8 +814,37 @@
         gap: 8px !important;
       }
 
-      /* === Parking backend screenshots === */
-      div[style*="display: flex"][style*="gap: 8px"] > div[style*="flex:1"] img { height: auto !important; }
+      /* === project-body padding === */
+      .project-body { padding: 28px 0 24px !important; }
+
+      /* === Smart Parking: laptop screenshots — stack vertically === */
+      #smart-parking div[style*="display: flex"][style*="gap: 8px"][style*="margin-bottom: 8px"] {
+        flex-direction: column !important;
+      }
+      #smart-parking div[style*="display: flex"][style*="gap: 8px"][style*="margin-bottom: 8px"] > div {
+        flex: unset !important;
+        width: 100% !important;
+      }
+
+      /* === Smart Parking: 3 small photos — keep row but fix height === */
+      #smart-parking div[style*="display: flex"][style*="gap: 6px"] > div[style*="flex:1"] {
+        height: 80px !important;
+      }
+
+      /* === Kanban strategy flow: stack cards vertically === */
+      #smart-parking div[style*="grid-template-columns: 1fr 32px 1fr 32px 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+      }
+      #smart-parking div[style*="grid-template-columns: 1fr 32px 1fr 32px 1fr"] > div[style*="text-align: center"] {
+        display: none !important;
+      }
+
+      /* === Kanban: solution area padding === */
+      #smart-parking div[style*="background: var(--blue-pale)"] {
+        padding: 16px !important;
+      }
 
       /* === Contact === */
       .closing-intro { font-size: 28px; }
