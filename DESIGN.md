@@ -58,7 +58,9 @@ KPI 卡漸層   #5C3318 → #7B4A32   ir-kpi-card
 | Section label | `Noto Sans TC` 600 | 11px | `.section-label`，uppercase |
 | KPI 數字（全域） | `serif` 900 | 36px | `.kpi-num` |
 | KPI 數字（iRent） | `sans-serif` 900 | 36px | `.ir-kpi-num` |
-| Nav | `Noto Sans TC` 500 | 13px | `.nav-links a` |
+| Nav 名稱 | `Noto Sans TC` 700 | 14px | `.nav-logo` |
+| Nav 認證小字 | `Noto Sans TC` 400 | 10px | `.nav-logo span:last-child`，letter-spacing 0.05em |
+| Nav 連結 | `Noto Sans TC` 500 | 13px | `.nav-links a` |
 
 **語言原則**：100% 中文，專有名詞例外（API、SOP、B2B2C、Scrum、GCP、Line Login 等）
 
@@ -68,10 +70,12 @@ KPI 卡漸層   #5C3318 → #7B4A32   ir-kpi-card
 
 ```
 <nav>                    ← 固定頂部，高度 56px，backdrop-filter: blur
-<section#hero>           ← 140px top padding，Grid 左名字右卡片
-<section#about>          ← 職涯時間軸，雙欄
+                           左上角：郭哲瑋 Jim Kuo + IPAS 認證 AI 應用規劃師（小字）
+                           右側：關於我 / 智慧停車 / 車車大檸檬 / AI 與敏捷應用 / IRENT / 聯絡
+<section#about>          ← 照片（左）+ 核心實戰卡片 + 職涯時間軸（右），雙欄
 <section#smart-parking>  ← 智慧停車，bg-pale
 <section#lemon>          ← 車車大檸檬，bg-white
+  └── #agile             ← AI 與敏捷開發模式子區塊（錨點）
 <section#irent>          ← iRent，bg-pale，Glassmorphism 內容
 <section#contact>        ← 黑底聯絡區
 ```
