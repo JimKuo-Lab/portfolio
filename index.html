@@ -759,41 +759,53 @@
       .nav-hamburger { display: flex; }
       .nav-inner { padding: 0 16px; }
 
-      /* === Section: 每個區塊獨立橫向捲動，保留桌面版視景 === */
+      /* === Section: 每個區塊獨立橫向捲動，隱藏 native scrollbar（由自製 fixed bar 取代） === */
       section {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding: 60px 0 56px;
-        scrollbar-width: thin;
-        scrollbar-color: var(--amber) var(--line-light);
+        scrollbar-width: none;
       }
       section:first-of-type { padding-top: 96px; }
-      section::-webkit-scrollbar { height: 5px; }
-      section::-webkit-scrollbar-track { background: var(--line-light); }
-      section::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
+      section::-webkit-scrollbar { display: none; }
 
       /* === Container: 維持桌面最小寬度 === */
       .container { min-width: 1200px; padding: 0 32px; }
+
+      /* === Project header: 移除負 margin === */
+      .project-header { margin: 0 !important; }
 
       /* === Lemon 三欄截圖 header: 防止 overflow 溢出相鄰欄 === */
       #lemon div[style*="height: 120px"][style*="margin-bottom: 16px"] {
         overflow: hidden;
       }
 
-      /* === Project header: 移除負 margin + 固定在左側不隨內容右滑 === */
-      .project-header {
-        margin: 0 !important;
-        position: sticky;
-        left: 0;
-        z-index: 5;
-      }
-
       /* === STP / Targeting: grid 子項目允許縮小，防止撐破欄位 === */
       #lemon div[style*="grid-template-columns: 1fr auto 1fr"] > div,
       #lemon div[style*="grid-template-columns: 1fr 1fr"] > div {
         min-width: 0;
-        overflow: hidden;
       }
+    }
+
+    /* ── 自製固定捲軸（手機版） ── */
+    .h-scroll-track {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--line-light);
+      z-index: 990;
+      opacity: 0;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .h-scroll-thumb {
+      height: 100%;
+      background: var(--amber);
+      border-radius: 2px;
+      min-width: 24px;
+      transition: width 0.08s linear;
     }
 
   /* ══ iRent Redesign ══ */
@@ -2131,6 +2143,45 @@
     window.addEventListener('scroll', () => {
       sessionStorage.setItem('scrollY', window.scrollY);
     }, { passive: true });
+
+    // ── Fixed horizontal scroll indicator (mobile only) ──
+    (function () {
+      if (window.innerWidth > 768) return;
+
+      const track = document.createElement('div');
+      track.className = 'h-scroll-track';
+      const thumb = document.createElement('div');
+      thumb.className = 'h-scroll-thumb';
+      track.appendChild(thumb);
+      document.body.appendChild(track);
+
+      const sections = Array.from(document.querySelectorAll('section'));
+
+      function update() {
+        const vh = window.innerHeight;
+        let best = null, bestVis = 0;
+
+        for (const s of sections) {
+          if (s.scrollWidth <= s.clientWidth + 2) continue;
+          const r = s.getBoundingClientRect();
+          const vis = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+          if (vis > bestVis) { bestVis = vis; best = s; }
+        }
+
+        if (best && bestVis > 80) {
+          const pct = best.scrollLeft / (best.scrollWidth - best.clientWidth);
+          thumb.style.width = (pct * 100) + '%';
+          track.style.opacity = '1';
+        } else {
+          track.style.opacity = '0';
+        }
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      sections.forEach(s => s.addEventListener('scroll', update, { passive: true }));
+      update();
+    })();
 
     // ── Hamburger menu ──
     const hamburger = document.getElementById('navHamburger');
