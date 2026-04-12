@@ -86,6 +86,57 @@
     }
     .nav-links a:hover { color: var(--amber); }
 
+    /* ── Hamburger button (hidden on desktop) ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 2px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile dropdown menu ── */
+    .nav-mobile-menu {
+      display: none;
+      position: absolute;
+      top: 56px;
+      left: 0; right: 0;
+      background: rgba(253,250,245,0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line-light);
+      z-index: 99;
+    }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu a {
+      display: block;
+      padding: 13px 20px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line-light);
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:active { color: var(--amber); }
+
     /* ── Sections & Container ── */
     .container {
       max-width: 1280px;
@@ -703,6 +754,7 @@
 
       /* === Nav === */
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .nav-inner { padding: 0 16px; }
 
       /* === Global === */
@@ -1090,6 +1142,18 @@
         <li><a href="#irent">IRENT</a></li>
         <li><a href="#contact">聯絡</a></li>
       </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="nav-mobile-menu" id="navMobileMenu">
+      <a href="#about">關於我</a>
+      <a href="#smart-parking">智慧停車解決方案</a>
+      <a href="#lemon">車車大檸檬</a>
+      <a href="#agile">AI 與敏捷應用</a>
+      <a href="#irent">IRENT</a>
+      <a href="#contact">聯絡</a>
     </div>
   </nav>
 
@@ -2176,6 +2240,20 @@
     window.addEventListener('scroll', () => {
       sessionStorage.setItem('scrollY', window.scrollY);
     }, { passive: true });
+
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
