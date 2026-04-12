@@ -41,6 +41,8 @@
       background: #FDFAF5;
       line-height: 1.6;
       font-size: 16px;
+      overflow-x: hidden;
+      max-width: 100%;
     }
 
     /* ── Nav ── */
@@ -762,6 +764,15 @@
       section { padding: 56px 0 44px; }
       section:first-of-type { padding-top: 88px; }
 
+      /* === Hero inner: collapse side-by-side grid === */
+      .hero-inner {
+        padding: 0 16px !important;
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .hero-cards { width: 100% !important; flex-direction: row !important; flex-wrap: wrap !important; }
+      .hero-card { flex: 1 1 calc(50% - 6px); min-width: 0; }
+
       /* === Typography === */
       .hero-name { font-size: 36px; }
       .section-title { font-size: 26px; }
@@ -799,15 +810,21 @@
         object-position: top center !important;
       }
 
-      /* === Journey steps: horizontal scroll === */
+      /* === Journey steps: horizontal scroll, always-visible scrollbar === */
+      .journey-strip { overflow: hidden; padding-bottom: 0; }
       .journey-steps {
-        overflow-x: auto !important;
+        overflow-x: scroll !important;
         -webkit-overflow-scrolling: touch;
         flex-wrap: nowrap !important;
-        padding-bottom: 8px;
+        padding-bottom: 12px !important;
         gap: 0 !important;
+        scrollbar-width: thin;
+        scrollbar-color: var(--amber) var(--line-light);
       }
-      .journey-step { min-width: 140px; }
+      .journey-steps::-webkit-scrollbar { height: 4px; }
+      .journey-steps::-webkit-scrollbar-track { background: var(--line-light); border-radius: 2px; }
+      .journey-steps::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
+      .journey-step { min-width: 130px; }
 
       /* === KPI strip: wrap === */
       .kpi-strip { flex-wrap: wrap; gap: 16px 0; }
