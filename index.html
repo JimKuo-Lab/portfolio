@@ -820,7 +820,7 @@
     }
     .scroll-hint-arrow {
       position: fixed;
-      bottom: 20px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
       z-index: 995;
       background: rgba(30, 20, 10, 0.28);
       border: none;
@@ -846,7 +846,7 @@
     /* ── 自製固定捲軸（手機版） ── */
     .h-scroll-track {
       position: fixed;
-      bottom: 0;
+      bottom: env(safe-area-inset-bottom, 0px);
       left: 0;
       right: 0;
       height: 4px;
@@ -2267,12 +2267,16 @@
         }
       }
 
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
-      sections.forEach(s => s.addEventListener('scroll', update, { passive: true }));
-      // iOS Safari layout timing: scrollWidth 在 script 執行時可能未計算完
+      let rafId = null;
+      function scheduleUpdate() {
+        if (!rafId) rafId = requestAnimationFrame(() => { update(); rafId = null; });
+      }
+
+      window.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+      sections.forEach(s => s.addEventListener('scroll', scheduleUpdate, { passive: true }));
+      // iOS Safari: scrollWidth 在 script 執行時可能未計算完，load 後補跑一次
       update();
-      setTimeout(update, 300);
       window.addEventListener('load', update);
     })();
 
