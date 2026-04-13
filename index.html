@@ -797,7 +797,47 @@
         mix-blend-mode: multiply;
       }
 
+      /* 個人照片：限制高度，不隨時間軸拉伸 */
+      #about div[style*="grid-template-columns: 5fr 7fr"] > div:first-child {
+        max-height: 340px;
+        height: 340px;
+      }
+
     }
+
+    /* ── 左右滑動提示箭頭 ── */
+    @keyframes nudge-right {
+      0%, 100% { transform: translateX(0); opacity: 0.45; }
+      50%       { transform: translateX(5px); opacity: 0.7; }
+    }
+    @keyframes nudge-left {
+      0%, 100% { transform: translateX(0); opacity: 0.45; }
+      50%       { transform: translateX(-5px); opacity: 0.7; }
+    }
+    .scroll-hint-arrow {
+      position: fixed;
+      bottom: 20px;
+      z-index: 995;
+      background: rgba(30, 20, 10, 0.28);
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 0;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .scroll-hint-arrow.visible { pointer-events: auto; }
+    .scroll-hint-left  { left: 14px;  animation: nudge-left  1.8s ease-in-out infinite; }
+    .scroll-hint-right { right: 14px; animation: nudge-right 1.8s ease-in-out infinite; }
 
     /* ── 自製固定捲軸（手機版） ── */
     .h-scroll-track {
@@ -2158,10 +2198,11 @@
       sessionStorage.setItem('scrollY', window.scrollY);
     }, { passive: true });
 
-    // ── Fixed horizontal scroll indicator (mobile only) ──
+    // ── Fixed horizontal scroll indicator + arrow hints (mobile only) ──
     (function () {
       if (window.innerWidth > 900) return;
 
+      // Scroll track
       const track = document.createElement('div');
       track.className = 'h-scroll-track';
       const thumb = document.createElement('div');
@@ -2169,7 +2210,24 @@
       track.appendChild(thumb);
       document.body.appendChild(track);
 
+      // Arrow hints
+      const leftArrow = document.createElement('button');
+      leftArrow.className = 'scroll-hint-arrow scroll-hint-left';
+      leftArrow.setAttribute('aria-label', '向左滑動');
+      leftArrow.innerHTML = '&#8249;';
+      document.body.appendChild(leftArrow);
+
+      const rightArrow = document.createElement('button');
+      rightArrow.className = 'scroll-hint-arrow scroll-hint-right';
+      rightArrow.setAttribute('aria-label', '向右滑動');
+      rightArrow.innerHTML = '&#8250;';
+      document.body.appendChild(rightArrow);
+
       const sections = Array.from(document.querySelectorAll('section'));
+      let currentSection = null;
+
+      leftArrow.addEventListener('click',  () => { if (currentSection) currentSection.scrollBy({ left: -220, behavior: 'smooth' }); });
+      rightArrow.addEventListener('click', () => { if (currentSection) currentSection.scrollBy({ left:  220, behavior: 'smooth' }); });
 
       function update() {
         const vh = window.innerHeight;
@@ -2183,11 +2241,25 @@
         }
 
         if (best && bestVis > 80) {
-          const pct = best.scrollLeft / (best.scrollWidth - best.clientWidth);
+          currentSection = best;
+          const maxScroll = best.scrollWidth - best.clientWidth;
+          const pct = best.scrollLeft / maxScroll;
           thumb.style.width = (pct * 100) + '%';
           track.style.opacity = '1';
+
+          const canLeft  = best.scrollLeft > 8;
+          const canRight = best.scrollLeft < maxScroll - 8;
+          leftArrow.style.opacity  = canLeft  ? '0.45' : '0';
+          rightArrow.style.opacity = canRight ? '0.45' : '0';
+          leftArrow.classList.toggle('visible',  canLeft);
+          rightArrow.classList.toggle('visible', canRight);
         } else {
-          track.style.opacity = '0';
+          currentSection = null;
+          track.style.opacity  = '0';
+          leftArrow.style.opacity  = '0';
+          rightArrow.style.opacity = '0';
+          leftArrow.classList.remove('visible');
+          rightArrow.classList.remove('visible');
         }
       }
 
