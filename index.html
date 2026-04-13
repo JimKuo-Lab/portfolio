@@ -759,8 +759,8 @@
       .nav-hamburger { display: flex; }
     }
 
-    /* ── Mobile (≤ 768px) ── */
-    @media (max-width: 768px) {
+    /* ── Mobile (≤ 900px) ── */
+    @media (max-width: 900px) {
 
       /* === Nav === */
       .nav-inner { padding: 0 16px; }
@@ -2160,7 +2160,7 @@
 
     // ── Fixed horizontal scroll indicator (mobile only) ──
     (function () {
-      if (window.innerWidth > 768) return;
+      if (window.innerWidth > 900) return;
 
       const track = document.createElement('div');
       track.className = 'h-scroll-track';
