@@ -797,10 +797,14 @@
         mix-blend-mode: multiply;
       }
 
-      /* 個人照片：限制高度，不隨時間軸拉伸 */
+      /* 個人照片：等比例顯示，不裁切，高度跟著圖片走 */
       #about div[style*="grid-template-columns: 5fr 7fr"] > div:first-child {
-        max-height: 340px;
-        height: 340px;
+        height: auto !important;
+      }
+      #about div[style*="grid-template-columns: 5fr 7fr"] > div:first-child img {
+        height: auto !important;
+        object-fit: contain !important;
+        object-position: top center !important;
       }
 
     }
