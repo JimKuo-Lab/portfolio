@@ -753,12 +753,16 @@
       .hero-name { font-size: 52px; }
     }
 
+    /* ── Nav 小螢幕（≤ 900px）：漢堡選單 ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
     /* ── Mobile (≤ 768px) ── */
     @media (max-width: 768px) {
 
       /* === Nav === */
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
       .nav-inner { padding: 0 16px; }
 
       /* === Section: 每個區塊獨立橫向捲動，隱藏 native scrollbar（由自製 fixed bar 取代） === */
