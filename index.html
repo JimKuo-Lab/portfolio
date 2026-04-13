@@ -2270,7 +2270,10 @@
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update);
       sections.forEach(s => s.addEventListener('scroll', update, { passive: true }));
+      // iOS Safari layout timing: scrollWidth 在 script 執行時可能未計算完
       update();
+      setTimeout(update, 300);
+      window.addEventListener('load', update);
     })();
 
     // ── Hamburger menu ──
