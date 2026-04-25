@@ -148,7 +148,7 @@
       padding: 0 56px;
     }
     section { padding: 120px 0 100px; }
-    section:first-of-type { padding-top: 52px; }
+    section:first-of-type { padding-top: 156px; }
 
     .section-label {
       font-size: 11px;
@@ -398,7 +398,7 @@
       background: var(--amber);
       color: #fff;
       border-radius: 0;
-      padding: 40px 56px 48px;
+      padding: 80px 56px 64px;
       margin: 0 -56px;
       margin-bottom: 0;
       overflow: hidden;
@@ -772,7 +772,7 @@
         padding: 60px 0 56px;
         scrollbar-width: none;
       }
-      section:first-of-type { padding-top: 32px; }
+      section:first-of-type { padding-top: 96px; }
       section::-webkit-scrollbar { display: none; }
 
       /* === Container: 維持桌面最小寬度 === */
@@ -1090,13 +1090,14 @@
   <nav>
     <div class="nav-inner">
       <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="#" class="nav-logo" style="display: flex; flex-direction: column; gap: 1px;">
+        <a href="#about" class="nav-logo" style="display: flex; flex-direction: column; gap: 1px;">
           <span>郭哲瑋 Jim Kuo</span>
-          <span style="font-size: 10px; font-weight: 400; color: var(--text-sub); letter-spacing: 0.05em;">iPAS 認證 AI 應用規劃師</span>
+          <span style="font-size: 10px; font-weight: 400; color: var(--text-sub); letter-spacing: 0.05em;">IPAS 認證 AI 應用規劃師</span>
         </a>
         <a href="https://drive.google.com/drive/folders/1QB40Ff1HreVSVyt31XsOp_GrEmPzHTiY?usp=drive_link" target="_blank" rel="noopener" style="font-size: 11px; font-weight: 600; color: #fff; text-decoration: none; background: #C4824A; padding: 4px 12px; border-radius: 4px; white-space: nowrap; margin-left: 8px;">履歷</a>
       </div>
       <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
         <li><a href="#smart-parking">智慧停車解決方案</a></li>
         <li><a href="#lemon">車車大檸檬</a></li>
         <li><a href="#agile">AI 與敏捷應用</a></li>
@@ -1109,6 +1110,7 @@
     </div>
     <!-- Mobile dropdown -->
     <div class="nav-mobile-menu" id="navMobileMenu">
+      <a href="#about">關於我</a>
       <a href="#smart-parking">智慧停車解決方案</a>
       <a href="#lemon">車車大檸檬</a>
       <a href="#agile">AI 與敏捷應用</a>
@@ -1116,6 +1118,133 @@
       <a href="#contact">聯絡</a>
     </div>
   </nav>
+
+  <!-- ══ About ══ -->
+  <section id="about" class="bg-white">
+    <div class="container">
+
+      <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: stretch;">
+
+        <!-- 左：個人照片 -->
+        <div style="height: 100%; overflow: hidden;">
+          <img src="assets/images/own.jpg" alt="郭哲瑋 Jim Kuo" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;">
+        </div>
+
+        <!-- 右：垂直時間線 (上=近 / 下=遠) -->
+        <div>
+
+          <!-- 核心實戰 block with skill tags -->
+          <div style="border: 1.5px solid var(--amber); padding: 28px 28px 24px; margin-bottom: 32px; background: #FFFDF9;">
+
+            <!-- Header row: label + tags -->
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;">
+              <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); font-weight: 700; white-space: nowrap;">核心實戰</div>
+              <div style="flex: 1; height: 1px; background: var(--amber); opacity: 0.3;"></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tag-primary" style="font-size: 12px; padding: 5px 14px;">B2B 產品開發</span>
+                <span class="tag-outline" style="font-size: 12px; padding: 4px 12px;">敏捷開發</span>
+                <span class="tag-outline" style="font-size: 12px; padding: 4px 12px;">數據分析</span>
+              </div>
+            </div>
+
+            <!-- 智慧停車 -->
+            <div style="display: flex; align-items: flex-start; margin-bottom: 0;">
+              <!-- dot column -->
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 13px; height: 13px; border-radius: 50%; background: var(--amber); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(194,98,43,0.2); margin-top: 19px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 24px; background: rgba(194,98,43,0.3); margin-top: 4px;"></div>
+              </div>
+              <!-- content -->
+              <div style="flex: 1; padding-bottom: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 52px; height: 52px; border: 1px solid var(--line-light); border-radius: 4px; overflow: hidden; flex-shrink: 0;">
+                  <img src="assets/images/smart-parking.jpg" alt="智慧停車" style="width:100%; height:100%; object-fit:cover; transform:scale(1.5);" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 18px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 4px;">智慧停車解決方案</div>
+                  <div style="font-size: 14px; color: var(--amber); font-weight: 600;">產品管理師</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- iRent -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 13px; height: 13px; border-radius: 50%; background: var(--amber); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(194,98,43,0.2); margin-top: 19px;"></div>
+              </div>
+              <div style="flex: 1; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 52px; height: 52px; border: 1px solid var(--line-light); border-radius: 4px; overflow: hidden; flex-shrink: 0;">
+                  <img src="assets/images/irent.jpg" alt="iRent" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 18px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 4px;">共享車平台</div>
+                  <div style="font-size: 14px; color: var(--amber); font-weight: 600;">產品企劃</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 早期探索 -->
+          <div style="padding: 0 4px;">
+            <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-sub); font-weight: 700; margin-bottom: 24px;">早期探索</div>
+
+            <!-- beanfun! -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 20px; background: var(--line-light); margin-top: 4px;"></div>
+              </div>
+              <div style="flex: 1; padding-bottom: 20px; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/beanfun.jpg" alt="beanfun!" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">beanfun! App - 社群網路</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">產品規劃實習生</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 傷口敷料 -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+                <div style="width: 2px; flex: 1; min-height: 20px; background: var(--line-light); margin-top: 4px;"></div>
+              </div>
+              <div style="flex: 1; padding-bottom: 20px; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/wound-dressing.jpg" alt="傷口敷料" style="transform:scale(1.3);" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">傷口敷料</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">科技部創業計畫</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meloop -->
+            <div style="display: flex; align-items: flex-start;">
+              <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; margin-right: 20px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; margin-top: 20px;"></div>
+              </div>
+              <div style="flex: 1; display: flex; align-items: center; gap: 16px;">
+                <div class="career-thumb dim" style="flex-shrink: 0;">
+                  <img src="assets/images/meloop.jpg" alt="Meloop" onerror="this.style.display='none';">
+                </div>
+                <div>
+                  <div style="font-size: 17px; font-weight: 600; color: var(--text-body); margin-bottom: 4px;">Meloop App - 線上約會</div>
+                  <div style="font-size: 14px; color: var(--text-sub);">行銷專案管理實習生</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin: 0;">
 
   <!-- ══ Project 1: 智慧停車 ══ -->
   <section id="smart-parking" class="bg-pale">
@@ -1781,6 +1910,15 @@
               <div class="strategy-footer-val">點數黏著 · 設備綁定 · 數據累積</div>
             </div>
           </div>
+          <div class="kpi-strip">
+            <div class="kpi-item">
+              <div class="kpi-num">1,800+ 萬</div>
+              <div class="kpi-right">
+                <div class="kpi-label">預期市場規模 / 年</div>
+                <div class="kpi-sub">已透過預售拿下關鍵客戶</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1887,39 +2025,54 @@
 
           <!-- ── PHASE 01 ── -->
           <div>
-            <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">數據整合 · 定義規格</span></div>
+            <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">研究 · 定義規格</span></div>
+
+            <!-- 數據來源標籤雲 -->
+            <div class="ir-block">
+              <div class="ir-block-label">數據來源與判斷標準</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px;">
+                <span class="ir-tag">車輛回傳（定位 · 速度）</span>
+                <span class="ir-tag">停車場回傳</span>
+                <span class="ir-tag">歷史訂單</span>
+                <span class="ir-tag ir-tag-muted">政府速限規範</span>
+                <span class="ir-tag ir-tag-muted">停車場還車規範</span>
+              </div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
+
+            <!-- 協作分析 -->
+            <div class="ir-block">
+              <div class="ir-block-label">與數據工程師協作分析</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">超速</div>
+                  <ul class="ir-bullet-list">
+                    <li>比對路段速限</li>
+                    <li>PR 區間分布圖（超出 10 / 20 / 30… km/h）</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">怠速</div>
+                  <ul class="ir-bullet-list">
+                    <li>平均怠速時長分布</li>
+                  </ul>
+                </div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">違規還車</div>
+                  <ul class="ir-bullet-list">
+                    <li>地區分布</li>
+                    <li>違規人數比例</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
 
             <div class="ir-block" style="margin-bottom: 28px;">
-              <!-- Input layer -->
-              <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 10px; margin-bottom: 10px;">
-                <div style="background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 10px 12px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">系統數據</div>
-                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                    <span class="ir-tag">車輛回傳</span>
-                    <span class="ir-tag">停車場回傳</span>
-                    <span class="ir-tag">歷史訂單</span>
-                  </div>
-                </div>
-                <div style="background: rgba(245,201,138,0.08); border: 1px dashed rgba(196,130,74,0.25); border-radius: 4px; padding: 10px 12px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">外部規範</div>
-                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                    <span class="ir-tag ir-tag-muted">政府速限規範</span>
-                    <span class="ir-tag ir-tag-muted">共享車營運規範</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Arrow -->
-              <div class="ir-flow-arrow"></div>
-              <!-- Process -->
-              <div style="background: rgba(139,90,58,0.07); border: 1px solid rgba(139,90,58,0.18); border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; text-align: center;">
-                <div style="font-size: 12px; font-weight: 700; color: #8B5A3A;">與數據工程師協作，分析用戶行為，產出統計報告</div>
-              </div>
-              <!-- Arrow -->
-              <div class="ir-flow-arrow"></div>
-              <!-- Output -->
-              <div style="background: rgba(139,90,58,0.12); border: 1px solid rgba(139,90,58,0.25); border-radius: 4px; padding: 10px 14px; text-align: center;">
-                <div style="font-size: 12px; font-weight: 700; color: #5C3318;">訂定標註規格</div>
-              </div>
+              <div class="ir-block-label">輸出</div>
+              <div class="ir-block-content">統計研究報告 → 確認標註規則與產品規格</div>
             </div>
           </div>
 
@@ -1927,28 +2080,35 @@
           <div>
             <div class="ir-phase-pill">PHASE 02<span class="ir-phase-title">系統開發 · 自動標註</span></div>
 
+            <div class="ir-block">
+              <div class="ir-block-label">自動標註引擎</div>
+              <div class="ir-block-content">每筆訂單即時比對規則，違規訂單自動標記並寫入後台報表</div>
+            </div>
+
+            <div class="ir-flow-arrow"></div>
+
             <div class="ir-block" style="margin-bottom: 28px;">
-              <div style="display: flex; align-items: stretch; gap: 0;">
-                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 12px 14px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">觸發</div>
-                  <div style="font-size: 13px; color: #1a1008; font-weight: 600;">違規行為</div>
-                  <div style="font-size: 11px; color: #5C3318; margin-top: 5px;">如超速、怠速與違規還車</div>
+              <div class="ir-block-label">報表詳情</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">違規還車</div>
+                  <ul class="ir-bullet-list">
+                    <li>停車場剩餘名額</li>
+                    <li>是否超額（第幾台）</li>
+                  </ul>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0 8px; color: #C4824A; font-size: 16px; flex-shrink: 0;">→</div>
-                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 12px 14px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">系統標註</div>
-                  <div style="font-size: 13px; color: #1a1008; font-weight: 600;">根據規格，雲端標註訂單</div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">超速</div>
+                  <ul class="ir-bullet-list">
+                    <li>路段速限</li>
+                    <li>實際超速幅度</li>
+                  </ul>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0 8px; color: #C4824A; font-size: 16px; flex-shrink: 0;">→</div>
-                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 12px 14px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">輸出</div>
-                  <div style="font-size: 13px; color: #1a1008; font-weight: 600;">後台數據報表</div>
-                </div>
-                <div style="display: flex; align-items: center; padding: 0 8px; color: #C4824A; font-size: 16px; flex-shrink: 0;">→</div>
-                <div style="flex: 1; background: rgba(139,90,58,0.12); border: 1px solid rgba(139,90,58,0.25); border-radius: 4px; padding: 12px 14px;">
-                  <div class="ir-block-label" style="margin-bottom: 8px;">使用者</div>
-                  <div style="font-size: 13px; color: #1a1008; font-weight: 600;">營運與客服</div>
-                  <div style="font-size: 11px; color: #5C3318; margin-top: 5px;">進行主動宣導與客人對應</div>
+                <div class="ir-sub-card">
+                  <div class="ir-sub-title">怠速</div>
+                  <ul class="ir-bullet-list">
+                    <li>怠速時長紀錄</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -1961,6 +2121,9 @@
             <div style="display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: stretch;">
               <!-- KPI 卡 -->
               <div class="ir-kpi-card">
+                <div class="ir-kpi-num">10 萬+</div>
+                <div class="ir-kpi-label">月訂單量</div>
+                <hr class="ir-kpi-divider">
                 <div class="ir-kpi-num">~ 2,000</div>
                 <div class="ir-kpi-label">張罰單 / 月</div>
               </div>
