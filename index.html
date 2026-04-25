@@ -2019,15 +2019,37 @@
             <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">數據整合 · 定義規格</span></div>
 
             <div class="ir-block" style="margin-bottom: 28px;">
-              <div class="ir-block-label">數據整合與規範比對</div>
-              <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; margin-bottom: 10px;">
-                <span class="ir-tag">車輛回傳</span>
-                <span class="ir-tag">停車場回傳</span>
-                <span class="ir-tag">歷史訂單</span>
-                <span class="ir-tag ir-tag-muted">政府速限規範</span>
-                <span class="ir-tag ir-tag-muted">停車場還車規範</span>
+              <!-- Input layer -->
+              <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 10px; margin-bottom: 10px;">
+                <div style="background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 10px 12px;">
+                  <div class="ir-block-label" style="margin-bottom: 8px;">系統數據</div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span class="ir-tag">車輛回傳</span>
+                    <span class="ir-tag">停車場回傳</span>
+                    <span class="ir-tag">歷史訂單</span>
+                  </div>
+                </div>
+                <div style="background: rgba(245,201,138,0.08); border: 1px dashed rgba(196,130,74,0.25); border-radius: 4px; padding: 10px 12px;">
+                  <div class="ir-block-label" style="margin-bottom: 8px;">外部規範</div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <span class="ir-tag ir-tag-muted">政府速限規範</span>
+                    <span class="ir-tag ir-tag-muted">停車場還車規範</span>
+                  </div>
+                </div>
               </div>
-              <div class="ir-block-content">與數據工程師協作，整合車輛回傳、停車場回傳與會員訂單，配合政府規範，以統計方法分析超速、怠速與違規還車等用戶行為，訂定標註規格——作為數據基礎建設的起點，為後續風險預測模型提供乾淨、結構化的訓練數據</div>
+              <!-- Arrow -->
+              <div class="ir-flow-arrow"></div>
+              <!-- Process -->
+              <div style="background: rgba(139,90,58,0.07); border: 1px solid rgba(139,90,58,0.18); border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; text-align: center;">
+                <div style="font-size: 12px; font-weight: 700; color: #8B5A3A;">與數據工程師協作 · 統計分析用戶行為</div>
+              </div>
+              <!-- Arrow -->
+              <div class="ir-flow-arrow"></div>
+              <!-- Output -->
+              <div style="background: rgba(139,90,58,0.12); border: 1px solid rgba(139,90,58,0.25); border-radius: 4px; padding: 10px 14px; text-align: center;">
+                <div style="font-size: 12px; font-weight: 700; color: #5C3318;">訂定標註規格</div>
+                <div style="font-size: 11px; color: #8B5A3A; margin-top: 5px;">數據基礎建設起點 · 為未來風險預測模型提供乾淨數據</div>
+              </div>
             </div>
           </div>
 
@@ -2036,8 +2058,30 @@
             <div class="ir-phase-pill">PHASE 02<span class="ir-phase-title">系統開發 · 自動標註</span></div>
 
             <div class="ir-block" style="margin-bottom: 28px;">
-              <div class="ir-block-label">業務邏輯</div>
-              <div class="ir-block-content">租賃訂單發生超速、怠速或違規還車時，系統依標註規格於雲端即時標記，並以後台報表呈現，使營運與客服得以主動宣導與因應客人</div>
+              <div style="display: flex; align-items: stretch; gap: 0;">
+                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 10px; text-align: center;">
+                  <div class="ir-block-label" style="margin-bottom: 4px;">觸發</div>
+                  <div style="font-size: 12px; color: #1a1008; font-weight: 600;">違規行為</div>
+                  <div style="font-size: 10px; color: #8B5A3A; margin-top: 5px;">超速 · 怠速<br>違規還車</div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0 6px; color: #C4824A; font-size: 16px;">→</div>
+                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 10px; text-align: center;">
+                  <div class="ir-block-label" style="margin-bottom: 4px;">系統處理</div>
+                  <div style="font-size: 12px; color: #1a1008; font-weight: 600;">即時比對規格</div>
+                  <div style="font-size: 10px; color: #8B5A3A; margin-top: 5px;">雲端標記訂單</div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0 6px; color: #C4824A; font-size: 16px;">→</div>
+                <div style="flex: 1; background: rgba(245,201,138,0.15); border: 1px solid rgba(196,130,74,0.2); border-radius: 4px; padding: 10px; text-align: center;">
+                  <div class="ir-block-label" style="margin-bottom: 4px;">輸出</div>
+                  <div style="font-size: 12px; color: #1a1008; font-weight: 600;">後台報表</div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0 6px; color: #C4824A; font-size: 16px;">→</div>
+                <div style="flex: 1; background: rgba(139,90,58,0.12); border: 1px solid rgba(139,90,58,0.25); border-radius: 4px; padding: 10px; text-align: center;">
+                  <div class="ir-block-label" style="margin-bottom: 4px;">使用者</div>
+                  <div style="font-size: 12px; color: #1a1008; font-weight: 600;">營運 · 客服</div>
+                  <div style="font-size: 10px; color: #8B5A3A; margin-top: 5px;">主動宣導與因應</div>
+                </div>
+              </div>
             </div>
           </div>
 
