@@ -2016,26 +2016,18 @@
 
           <!-- ── PHASE 01 ── -->
           <div>
-            <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">研究 · 定義規格</span></div>
+            <div class="ir-phase-pill">PHASE 01<span class="ir-phase-title">數據整合 · 定義規格</span></div>
 
-            <!-- 數據來源標籤雲 -->
-            <div class="ir-block">
-              <div class="ir-block-label">數據來源與判斷標準</div>
-              <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px;">
+            <div class="ir-block" style="margin-bottom: 28px;">
+              <div class="ir-block-label">數據整合與規範比對</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; margin-bottom: 10px;">
                 <span class="ir-tag">車輛回傳</span>
                 <span class="ir-tag">停車場回傳</span>
                 <span class="ir-tag">歷史訂單</span>
                 <span class="ir-tag ir-tag-muted">政府速限規範</span>
                 <span class="ir-tag ir-tag-muted">停車場還車規範</span>
               </div>
-            </div>
-
-            <div class="ir-flow-arrow"></div>
-
-            <!-- 協作分析 -->
-            <div class="ir-block" style="margin-bottom: 28px;">
-              <div class="ir-block-label">與數據工程師協作分析，產出統計報告定義標註規格</div>
-              <div class="ir-block-content" style="margin-top: 8px;">統計報告涵蓋超速、怠速與違規還車三大面向，分析用戶行為現況，作為後續標註規格的制定依據</div>
+              <div class="ir-block-content">與數據工程師協作，整合車輛回傳、停車場回傳與會員訂單，配合政府規範，以統計方法分析超速、怠速與違規還車等用戶行為，訂定標註規格——作為數據基礎建設的起點，為後續風險預測模型提供乾淨、結構化的訓練數據</div>
             </div>
           </div>
 
@@ -2044,8 +2036,8 @@
             <div class="ir-phase-pill">PHASE 02<span class="ir-phase-title">系統開發 · 自動標註</span></div>
 
             <div class="ir-block" style="margin-bottom: 28px;">
-              <div class="ir-block-label">自動標註引擎</div>
-              <div class="ir-block-content">每筆訂單即時比對規則，違規訂單自動標記並寫入後台報表，涵蓋違規還車、超速與怠速三類違規紀錄</div>
+              <div class="ir-block-label">業務邏輯</div>
+              <div class="ir-block-content">租賃訂單發生超速、怠速或違規還車時，系統依標註規格於雲端即時標記，並以後台報表呈現，使營運與客服得以主動宣導與因應客人</div>
             </div>
           </div>
 
